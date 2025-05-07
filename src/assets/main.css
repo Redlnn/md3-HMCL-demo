@@ -1,0 +1,25 @@
+@import './base.css';
+
+#app {
+  width: 960px;
+  height: 600px;
+}
+
+html,
+body {
+  overflow: hidden;
+}
+
+#app {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  margin: 20px;
+  color: var(--color-on-surface);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
