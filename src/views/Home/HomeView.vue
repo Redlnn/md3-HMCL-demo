@@ -19,13 +19,13 @@ import { Play12Filled, CaretUp24Filled } from '@vicons/fluent'
       </p>
     </div>
     <div class="play-btn">
-      <div class="play-btn-content">
+      <a class="play-btn-content" href="minecraft://">
         <Play12Filled />
         <div class="play-btn-text">
           <p class="launch">开始游戏</p>
           <p class="version">fabric-loader-0.16.14-1.21.511111111</p>
         </div>
-      </div>
+      </a>
       <div class="hr"></div>
       <div class="arrow">
         <CaretUp24Filled />

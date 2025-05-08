@@ -11,19 +11,23 @@ withDefaults(
     title?: string
   }>(),
   {
-    title: 'Hello Minecraft! Launcher v4.0.0-dev-',
+    title: 'Hello Minecraft! Launcher v4.0.0-dev-5ea93dd',
   },
 )
 </script>
 
 <template>
   <header>
-    <div style="display: inline-flex; align-items: center; gap: 10px">
-      <span class="icon">
-        <img v-if="route.path === '/'" src="/hmcl.png" alt="icon" />
-        <back-btn v-else />
-      </span>
-      <span class="title">{{ title }}</span>
+    <div style="margin: auto 0">
+      <transition name="slide-fade">
+        <div style="display: inline-flex; align-items: center; gap: 10px" :key="title">
+          <span class="icon">
+            <img v-if="route.path === '/'" src="/hmcl.png" alt="icon" />
+            <back-btn v-else />
+          </span>
+          <span class="title">{{ title }}</span>
+        </div>
+      </transition>
     </div>
     <div class="controls">
       <span>
@@ -39,6 +43,32 @@ withDefaults(
   </header>
 </template>
 <style scoped lang="scss">
+.slide-fade-enter-active {
+  transition: all 0.5s ease;
+}
+.slide-fade-enter-from {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.slide-fade-enter-to {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* 离开动画 */
+.slide-fade-leave-active {
+  transition: all 0.5s ease;
+  position: absolute;
+}
+.slide-fade-leave-from {
+  transform: translateX(0);
+  opacity: 1;
+}
+.slide-fade-leave-to {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
 header {
   width: 100%;
   height: 50px;

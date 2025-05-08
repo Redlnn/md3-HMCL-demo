@@ -14,23 +14,23 @@ import { CloudDownloadOutlined } from '@vicons/material'
     </div>
   </router-link>
   <div class="hr"></div>
-  <div class="item-content">
+  <router-link to="/" class="item-content">
     <span class="icon-container">
-      <img src="/fabric.svg" alt="icon" class="icon" style="height: 32px" />
+      <img src="/fabric.svg" alt="icon" class="icon" style="height: 30px" />
     </span>
     <div>
       <div class="title">版本管理</div>
       <div class="content">fabric-loader-0.16.14-1.21.5</div>
     </div>
-  </div>
-  <div class="item">
+  </router-link>
+  <router-link to="/version_list" class="item">
     <span class="icon-container">
       <TextBulletListLtr16Filled class="icon" />
     </span>
     <div>
       <div class="title">版本列表</div>
     </div>
-  </div>
+  </router-link>
   <div class="item">
     <span class="icon-container">
       <CloudDownloadOutlined class="icon" />
@@ -74,7 +74,7 @@ import { CloudDownloadOutlined } from '@vicons/material'
 
   .avatar {
     height: 32px;
-    margin-right: 1rem;
+    margin-right: 13px;
   }
 
   .name {

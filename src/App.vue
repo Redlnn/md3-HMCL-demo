@@ -11,20 +11,32 @@ const route = useRoute()
   <div class="bg"></div>
   <div class="bg-mask"></div>
   <hmcl-header :title="route.meta.title"></hmcl-header>
-  <div style="width: 100%; height: calc(100% - 50px); padding: 10px 20px 20px">
-    <hmcl-sidebar v-if="route.meta.sidebar">
-      <component :is="route.meta.sidebar" />
-    </hmcl-sidebar>
-    <main
-      style="display: inline-block; height: 100%; vertical-align: top"
-      :style="{ width: route.meta.sidebar ? 'calc(100% - 250px)' : '100%' }"
-    >
-      <router-view />
-    </main>
-  </div>
+  <transition name="fade" mode="out-in">
+    <div style="width: 100%; height: calc(100% - 50px); padding: 10px 20px 20px" :key="route.path">
+      <hmcl-sidebar v-if="route.meta.sidebar">
+        <component :is="route.meta.sidebar" />
+      </hmcl-sidebar>
+      <main
+        style="display: inline-block; height: 100%; vertical-align: top"
+        :style="{ width: route.meta.sidebar ? 'calc(100% - 250px)' : '100%' }"
+      >
+        <router-view />
+      </main>
+    </div>
+  </transition>
 </template>
 
 <style scoped lang="scss">
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
 .bg {
   z-index: -2;
   position: absolute;
@@ -33,11 +45,11 @@ const route = useRoute()
   width: 100%;
   height: 100%;
   background-color: var(--color-surface);
-  // background-image: url(./2017-01-19_22.25.09.png);
+  background-image: url(./2017-01-19_22.25.09.png);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  filter: blur(10px) brightness(1.1);
+  filter: blur(1px) brightness(1.05);
   transform: scale(1.1);
 }
 

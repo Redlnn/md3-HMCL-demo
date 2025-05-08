@@ -1,112 +1,54 @@
 <script setup lang="ts">
-//MoreVertOutlined
-import {
-  CheckRound,
-  CompareArrowsRound,
-  RefreshRound,
-  CheckroomRound,
-  ContentCopyRound,
-  DeleteOutlineRound,
-  PlusRound,
-} from '@vicons/material'
+import { CheckRound, DeveloperBoardRound, MoreVertOutlined } from '@vicons/material'
 </script>
 
 <template>
-  <section class="account-list">
-    <div class="account-item active">
+  <section class="version-list">
+    <div class="version-item active">
       <div class="avatar">
         <div class="active-icon">
           <CheckRound />
         </div>
-        <img src="/avatarHead3.png" alt="Avatar" />
+        <img src="/Grass_Block_JE7_BE6.png" alt="Avatar" />
       </div>
-      <div class="account">
-        <div class="name">Glavo</div>
-        <div class="type">Microsoft Account</div>
-      </div>
-      <div class="operation-item">
-        <CompareArrowsRound />
+      <div class="version">
+        <div class="name">1.21.5</div>
+        <div class="type">1.21.5</div>
       </div>
       <div class="operation-item">
-        <RefreshRound />
+        <DeveloperBoardRound />
       </div>
       <div class="operation-item">
-        <CheckroomRound />
-      </div>
-      <div class="operation-item">
-        <ContentCopyRound />
-      </div>
-      <div class="operation-item delete">
-        <DeleteOutlineRound />
+        <MoreVertOutlined />
       </div>
     </div>
-    <div class="account-item">
+    <div class="version-item">
       <div class="avatar">
         <div class="active-icon">
           <CheckRound />
         </div>
-        <img src="/avatarHead3.png" alt="Avatar" />
+        <img src="/fabric.svg" alt="Avatar" />
       </div>
-      <div class="account">
-        <div class="name">Glavo</div>
-        <div class="type">Microsoft Account</div>
-      </div>
-      <div class="operation-item">
-        <CompareArrowsRound />
+      <div class="version">
+        <div class="name">fabric-loader-0.16.14-1.21.5</div>
+        <div class="type">1.21.5, Fabric: 0.16.4</div>
       </div>
       <div class="operation-item">
-        <RefreshRound />
+        <DeveloperBoardRound />
       </div>
       <div class="operation-item">
-        <CheckroomRound />
+        <MoreVertOutlined />
       </div>
-      <div class="operation-item">
-        <ContentCopyRound />
-      </div>
-      <div class="operation-item delete">
-        <DeleteOutlineRound />
-      </div>
-    </div>
-    <div class="account-item">
-      <div class="avatar">
-        <div class="active-icon">
-          <CheckRound />
-        </div>
-        <img src="/avatarHead3.png" alt="Avatar" />
-      </div>
-      <div class="account">
-        <div class="name">Glavo</div>
-        <div class="type">Microsoft Account</div>
-      </div>
-      <div class="operation-item">
-        <CompareArrowsRound />
-      </div>
-      <div class="operation-item">
-        <RefreshRound />
-      </div>
-      <div class="operation-item">
-        <CheckroomRound />
-      </div>
-      <div class="operation-item">
-        <ContentCopyRound />
-      </div>
-      <div class="operation-item delete">
-        <DeleteOutlineRound />
-      </div>
-    </div>
-    <div class="add-account-btn">
-      <PlusRound />
-      <span>添加账号</span>
     </div>
   </section>
 </template>
 
 <style lang="scss" scoped>
-.account-list {
+.version-list {
   position: relative;
   height: 100%;
 
-  .add-account-btn {
+  .add-version-btn {
     position: absolute;
     bottom: 20px;
     right: 30px;
@@ -135,7 +77,7 @@ import {
   }
 }
 
-.account-item {
+.version-item {
   display: flex;
   align-items: center;
   padding: 10px 20px;
@@ -193,7 +135,7 @@ import {
     }
   }
 
-  .account {
+  .version {
     flex-grow: 1;
 
     .name {

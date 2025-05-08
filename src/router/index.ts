@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/Home/HomeView.vue'
 import HomeSidebar from '@/views/Home/HomeSidebar.vue'
+import VersionSidebar from '@/views/VersionList/VersionSidebar.vue'
 import type { Component } from 'vue'
 
 declare module 'vue-router' {
@@ -27,6 +28,15 @@ const router = createRouter({
       component: () => import('@/views/AccountList/AccountView.vue'),
       meta: {
         title: '账户列表',
+      },
+    },
+    {
+      path: '/version_list',
+      name: 'versionList',
+      component: () => import('@/views/VersionList/VersionView.vue'),
+      meta: {
+        title: '版本列表',
+        sidebar: VersionSidebar,
       },
     },
   ],

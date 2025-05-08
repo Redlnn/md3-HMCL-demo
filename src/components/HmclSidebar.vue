@@ -1,5 +1,7 @@
 <template>
-  <nav class="sidebar"><slot></slot></nav>
+  <nav class="sidebar">
+    <slot></slot>
+  </nav>
 </template>
 
 <style lang="scss">
@@ -30,11 +32,11 @@
       display: flex;
       justify-content: center;
       width: 30px;
-      margin-right: 1rem;
+      margin-right: 13px;
     }
 
     .icon {
-      height: 32px;
+      height: 25px;
     }
 
     .title {
@@ -46,7 +48,7 @@
       font-size: 12px;
       color: color-mix(in srgb, var(--color-on-primary-container), transparent 50%);
       line-height: 14px;
-      max-width: 140px;
+      max-width: 155px;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
@@ -72,11 +74,11 @@
       display: flex;
       justify-content: center;
       width: 30px;
-      margin-right: 1rem;
+      margin-right: 13px;
     }
 
     .icon {
-      height: 20px;
+      height: 25px;
     }
 
     .title {
