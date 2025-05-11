@@ -47,6 +47,7 @@ import { CheckRound, DeveloperBoardRound, MoreVertOutlined } from '@vicons/mater
 .version-list {
   position: relative;
   height: 100%;
+  padding: 10px 20px 20px 0;
 
   .add-version-btn {
     position: absolute;

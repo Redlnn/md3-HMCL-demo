@@ -7,7 +7,7 @@
 <style lang="scss">
 .sidebar {
   display: inline-block;
-  width: 250px;
+  width: 270px;
   height: 100%;
   padding-right: 20px;
 

@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/Home/HomeView.vue'
-import HomeSidebar from '@/views/Home/HomeSidebar.vue'
 import VersionSidebar from '@/views/VersionList/VersionSidebar.vue'
 import type { Component } from 'vue'
 
@@ -18,9 +17,6 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
-      meta: {
-        sidebar: HomeSidebar,
-      },
     },
     {
       path: '/account',

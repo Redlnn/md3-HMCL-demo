@@ -72,6 +72,7 @@ import {
   flex-direction: column;
   width: 100%;
   height: 100%;
+  padding: 10px 0 20px 20px;
 }
 
 .delete {

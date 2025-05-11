@@ -105,6 +105,7 @@ import {
 .account-list {
   position: relative;
   height: 100%;
+  padding: 10px 20px 20px;
 
   .add-account-btn {
     position: absolute;

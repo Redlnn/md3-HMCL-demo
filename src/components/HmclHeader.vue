@@ -11,7 +11,7 @@ withDefaults(
     title?: string
   }>(),
   {
-    title: 'Hello Minecraft! Launcher v4.0.0-dev-5ea93dd',
+    title: 'Hello Minecraft! Launcher',
   },
 )
 </script>
@@ -80,7 +80,7 @@ header {
   .icon,
   .icon img,
   .icon svg {
-    height: 30px;
+    height: 25px;
   }
 
   .title {

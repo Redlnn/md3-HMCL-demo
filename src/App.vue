@@ -12,13 +12,13 @@ const route = useRoute()
   <div class="bg-mask"></div>
   <hmcl-header :title="route.meta.title"></hmcl-header>
   <transition name="fade" mode="out-in">
-    <div style="width: 100%; height: calc(100% - 50px); padding: 10px 20px 20px" :key="route.path">
+    <div style="width: 100%; height: calc(100% - 50px)" :key="route.path">
       <hmcl-sidebar v-if="route.meta.sidebar">
         <component :is="route.meta.sidebar" />
       </hmcl-sidebar>
       <main
         style="display: inline-block; height: 100%; vertical-align: top"
-        :style="{ width: route.meta.sidebar ? 'calc(100% - 250px)' : '100%' }"
+        :style="{ width: route.meta.sidebar ? 'calc(100% - 270px)' : '100%' }"
       >
         <router-view />
       </main>
