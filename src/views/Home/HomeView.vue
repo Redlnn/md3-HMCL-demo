@@ -5,7 +5,7 @@ import {
   TextBulletListLtr16Filled,
   Settings16Regular,
 } from '@vicons/fluent'
-import { CheckRound } from '@vicons/material'
+import { CheckRound, CloudDownloadOutlined } from '@vicons/material'
 
 import { ref } from 'vue'
 import { onClickOutside } from '@vueuse/core'
@@ -77,6 +77,10 @@ onClickOutside(verList, () => (versionListShow.value = false))
           <router-link to="" class="btn">
             <Settings16Regular class="btn-icon" />
             <span class="btn-text">设置</span>
+          </router-link>
+          <router-link to="" class="btn">
+            <CloudDownloadOutlined class="btn-icon" />
+            <span class="btn-text">下载游戏</span>
           </router-link>
           <router-link to="/version_list" class="btn">
             <TextBulletListLtr16Filled class="btn-icon" />
@@ -270,7 +274,7 @@ onClickOutside(verList, () => (versionListShow.value = false))
     align-items: center;
     justify-content: center;
     height: 70px;
-    width: 90px;
+    width: 70px;
     border-radius: 20px;
     cursor: pointer;
 
