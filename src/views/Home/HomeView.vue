@@ -5,13 +5,15 @@ import {
   TextBulletListLtr16Filled,
   Settings16Regular,
 } from '@vicons/fluent'
-import { CheckRound, CloudDownloadOutlined } from '@vicons/material'
+import { CheckRound, CloudDownloadOutlined, CloseRound } from '@vicons/material'
 
 import { ref } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 
 const versionListShow = ref(false)
 const verList = ref<HTMLDivElement>()
+const closeAnnouncement = ref(false)
+
 onClickOutside(verList, () => (versionListShow.value = false))
 </script>
 
@@ -49,7 +51,8 @@ onClickOutside(verList, () => (versionListShow.value = false))
       </div>
     </Transition>
     <div class="top-area">
-      <div class="developer-info">
+      <div v-if="!closeAnnouncement" class="developer-info">
+        <CloseRound class="close-btn" @click="closeAnnouncement = true" />
         <p style="font-weight: bold">开发版提示</p>
         <p>
           你正在使用 HMCL
@@ -152,6 +155,16 @@ onClickOutside(verList, () => (versionListShow.value = false))
   background-color: color-mix(in srgb, var(--color-tertiary-container), transparent 30%);
   color: var(--color-on-tertiary-container);
   border-radius: 10px;
+  position: relative;
+
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+  }
 
   p {
     margin: 10px 0;
