@@ -44,7 +44,7 @@ withDefaults(
 </template>
 <style scoped lang="scss">
 .slide-fade-enter-active {
-  transition: all 0.5s ease;
+  transition: all 0.2s ease;
 }
 .slide-fade-enter-from {
   transform: translateX(-100%);
@@ -57,7 +57,7 @@ withDefaults(
 
 /* 离开动画 */
 .slide-fade-leave-active {
-  transition: all 0.5s ease;
+  transition: all 0.2s ease;
   position: absolute;
 }
 .slide-fade-leave-from {
