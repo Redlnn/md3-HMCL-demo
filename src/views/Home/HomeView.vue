@@ -49,7 +49,7 @@ onClickOutside(verList, () => (versionListShow.value = false))
       </div>
     </Transition>
     <div class="top-area">
-      <!-- <div class="developer-info">
+      <div class="developer-info">
         <p style="font-weight: bold">开发版提示</p>
         <p>
           你正在使用 HMCL
@@ -62,7 +62,7 @@ onClickOutside(verList, () => (versionListShow.value = false))
           的重要动态，或关注 <a href="https://space.bilibili.com/20314891">@Glavo</a> 以了解 HMCL
           的开发进展
         </p>
-      </div> -->
+      </div>
     </div>
     <div class="bottom-area">
       <router-link to="/account" class="player-info">
@@ -148,7 +148,8 @@ onClickOutside(verList, () => (versionListShow.value = false))
 
 .developer-info {
   padding: 10px 20px;
-  background-color: var(--color-tertiary-container);
+  max-width: 600px;
+  background-color: color-mix(in srgb, var(--color-tertiary-container), transparent 30%);
   color: var(--color-on-tertiary-container);
   border-radius: 10px;
 
@@ -164,6 +165,9 @@ onClickOutside(verList, () => (versionListShow.value = false))
 
 .top-area {
   height: calc(100% - 70px);
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
 }
 
 .bottom-area {
@@ -178,17 +182,15 @@ onClickOutside(verList, () => (versionListShow.value = false))
   bottom: 90px;
   right: 0;
   margin: 10px 20px 20px;
-  background-color: var(--color-surface-container);
+  background-color: color-mix(in srgb, var(--color-surface-container), transparent 30%);
   border-radius: 15px;
   padding: 10px 0;
-  box-shadow: 2px 3px 5px color-mix(in srgb, #666, transparent 90%);
 
   .version-item {
     display: flex;
     align-items: center;
     padding: 10px 20px;
     cursor: pointer;
-    border-radius: 15px;
 
     &:first-child {
       margin-top: 0;
@@ -197,7 +199,7 @@ onClickOutside(verList, () => (versionListShow.value = false))
       margin-bottom: 0;
     }
     &:hover {
-      background-color: color-mix(in srgb, var(--color-surface-container), transparent 10%);
+      background-color: color-mix(in srgb, var(--color-surface-container), transparent 20%);
     }
 
     &.active .active-icon {
@@ -300,7 +302,7 @@ onClickOutside(verList, () => (versionListShow.value = false))
   padding: 0 10px 0 20px;
   width: 220px;
   height: 70px;
-  background-color: color-mix(in srgb, var(--color-primary-container), transparent 50%);
+  background-color: color-mix(in srgb, var(--color-primary-container), transparent 30%);
   color: var(--color-on-primary-container);
   border-radius: 20px;
   cursor: pointer;
