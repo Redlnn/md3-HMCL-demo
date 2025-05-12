@@ -1,68 +1,35 @@
 <script setup lang="ts">
 import {
   FolderOpenRound,
-  CloseRound,
-  CheckRound,
   AddBoxOutlined,
   DownloadOutlined,
   MoveToInboxOutlined,
   RefreshRound,
 } from '@vicons/material'
+
+import SidebarItem from './components/SidebarItem.vue'
 </script>
 
 <template>
   <div class="sidebar-container">
-    <div class="item-content">
-      <span class="icon-container active">
-        <FolderOpenRound class="icon" />
-        <div class="active-icon">
-          <CheckRound />
-        </div>
-      </span>
-      <div class="content-container">
-        <div class="title">官方启动器文件夹</div>
-        <div class="content">/hmcl-dev/HMCL/.minecraft</div>
-      </div>
-      <CloseRound class="delete" />
-    </div>
-    <div class="item-content">
-      <span class="icon-container">
-        <FolderOpenRound class="icon" />
-        <div class="active-icon">
-          <CheckRound />
-        </div>
-      </span>
-      <div class="content-container">
-        <div class="title">测试文件夹</div>
-        <div class="content">/PCL-Community/PCL2-CE/</div>
-      </div>
-      <CloseRound class="delete" />
-    </div>
-    <div class="item">
-      <span class="icon-container">
-        <AddBoxOutlined class="icon" />
-      </span>
-      <div class="title">添加游戏文件夹</div>
-    </div>
+    <sidebar-item
+      :icon="FolderOpenRound"
+      title="官方启动器文件夹"
+      content="/hmcl-dev/HMCL/.minecraft"
+      active
+      can-delete
+    />
+    <sidebar-item
+      :icon="FolderOpenRound"
+      title="测试文件夹"
+      content="/PCL-Community/PCL2-CE/"
+      can-delete
+    />
+    <sidebar-item :icon="AddBoxOutlined" title="添加文件夹" />
     <div style="flex-grow: 1"></div>
-    <div class="item">
-      <span class="icon-container">
-        <DownloadOutlined class="icon" />
-      </span>
-      <div class="title">下载新游戏</div>
-    </div>
-    <div class="item">
-      <span class="icon-container">
-        <MoveToInboxOutlined class="icon" />
-      </span>
-      <div class="title">导入整合包</div>
-    </div>
-    <div class="item">
-      <span class="icon-container">
-        <RefreshRound class="icon" />
-      </span>
-      <div class="title">刷新</div>
-    </div>
+    <sidebar-item :icon="DownloadOutlined" title="下载新游戏" />
+    <sidebar-item :icon="MoveToInboxOutlined" title="导入整合包" />
+    <sidebar-item :icon="RefreshRound" title="刷新" />
   </div>
 </template>
 
@@ -75,7 +42,7 @@ import {
   padding: 10px 0 20px 20px;
 }
 
-.delete {
+:deep(.delete) {
   width: 16px;
   height: 16px;
   margin-left: 8px;
@@ -83,11 +50,11 @@ import {
   flex-shrink: 0;
 }
 
-.content-container {
+:deep(.content-container) {
   width: 131px;
 }
 
-.icon-container {
+:deep(.icon-container) {
   position: relative;
 
   &.active .active-icon {

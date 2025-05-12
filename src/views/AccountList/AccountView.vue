@@ -1,99 +1,21 @@
 <script setup lang="ts">
 //MoreVertOutlined
-import {
-  CheckRound,
-  CompareArrowsRound,
-  RefreshRound,
-  CheckroomRound,
-  ContentCopyRound,
-  DeleteOutlineRound,
-  PlusRound,
-} from '@vicons/material'
+import { PlusRound } from '@vicons/material'
+
+import AccountItem from './components/AccountItem.vue'
 </script>
 
 <template>
   <section class="account-list">
-    <div class="account-item active">
-      <div class="avatar">
-        <div class="active-icon">
-          <CheckRound />
-        </div>
-        <img src="/avatarHead3.png" alt="Avatar" />
-      </div>
-      <div class="account">
-        <div class="name">Glavo</div>
-        <div class="type">Microsoft Account</div>
-      </div>
-      <div class="operation-item">
-        <CompareArrowsRound />
-      </div>
-      <div class="operation-item">
-        <RefreshRound />
-      </div>
-      <div class="operation-item">
-        <CheckroomRound />
-      </div>
-      <div class="operation-item">
-        <ContentCopyRound />
-      </div>
-      <div class="operation-item delete">
-        <DeleteOutlineRound />
-      </div>
-    </div>
-    <div class="account-item">
-      <div class="avatar">
-        <div class="active-icon">
-          <CheckRound />
-        </div>
-        <img src="/avatarHead3.png" alt="Avatar" />
-      </div>
-      <div class="account">
-        <div class="name">Glavo</div>
-        <div class="type">Microsoft Account</div>
-      </div>
-      <div class="operation-item">
-        <CompareArrowsRound />
-      </div>
-      <div class="operation-item">
-        <RefreshRound />
-      </div>
-      <div class="operation-item">
-        <CheckroomRound />
-      </div>
-      <div class="operation-item">
-        <ContentCopyRound />
-      </div>
-      <div class="operation-item delete">
-        <DeleteOutlineRound />
-      </div>
-    </div>
-    <div class="account-item">
-      <div class="avatar">
-        <div class="active-icon">
-          <CheckRound />
-        </div>
-        <img src="/avatarHead3.png" alt="Avatar" />
-      </div>
-      <div class="account">
-        <div class="name">Glavo</div>
-        <div class="type">Microsoft Account</div>
-      </div>
-      <div class="operation-item">
-        <CompareArrowsRound />
-      </div>
-      <div class="operation-item">
-        <RefreshRound />
-      </div>
-      <div class="operation-item">
-        <CheckroomRound />
-      </div>
-      <div class="operation-item">
-        <ContentCopyRound />
-      </div>
-      <div class="operation-item delete">
-        <DeleteOutlineRound />
-      </div>
-    </div>
+    <account-item title="Glavo" type="Microsoft Account" active>
+      <img src="/avatarHead3.png" alt="Avatar" />
+    </account-item>
+    <account-item title="Glavo" type="Microsoft Account">
+      <img src="/avatarHead3.png" alt="Avatar" />
+    </account-item>
+    <account-item title="Glavo" type="Microsoft Account">
+      <img src="/avatarHead3.png" alt="Avatar" />
+    </account-item>
     <div class="add-account-btn">
       <PlusRound />
       <span>添加账号</span>
@@ -136,7 +58,7 @@ import {
   }
 }
 
-.account-item {
+:deep(.account-item) {
   display: flex;
   align-items: center;
   padding: 10px 20px;

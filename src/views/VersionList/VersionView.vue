@@ -1,45 +1,15 @@
 <script setup lang="ts">
-import { CheckRound, DeveloperBoardRound, MoreVertOutlined } from '@vicons/material'
+import VersionItem from './components/VersionItem.vue'
 </script>
 
 <template>
   <section class="version-list">
-    <div class="version-item active">
-      <div class="avatar">
-        <div class="active-icon">
-          <CheckRound />
-        </div>
-        <img src="/Grass_Block_JE7_BE6.png" alt="Avatar" />
-      </div>
-      <div class="version">
-        <div class="name">1.21.5</div>
-        <div class="type">1.21.5</div>
-      </div>
-      <div class="operation-item">
-        <DeveloperBoardRound />
-      </div>
-      <div class="operation-item">
-        <MoreVertOutlined />
-      </div>
-    </div>
-    <div class="version-item">
-      <div class="avatar">
-        <div class="active-icon">
-          <CheckRound />
-        </div>
-        <img src="/fabric.svg" alt="Avatar" />
-      </div>
-      <div class="version">
-        <div class="name">fabric-loader-0.16.14-1.21.5</div>
-        <div class="type">1.21.5, Fabric: 0.16.4</div>
-      </div>
-      <div class="operation-item">
-        <DeveloperBoardRound />
-      </div>
-      <div class="operation-item">
-        <MoreVertOutlined />
-      </div>
-    </div>
+    <version-item title="1.21.5" content="1.21.5" active>
+      <img src="/Grass_Block_JE7_BE6.png" alt="Avatar" />
+    </version-item>
+    <version-item title="fabric-loader-0.16.14-1.21.5" content="1.21.5, Fabric: 0.16.4">
+      <img src="/fabric.svg" alt="Avatar" />
+    </version-item>
   </section>
 </template>
 
@@ -78,7 +48,7 @@ import { CheckRound, DeveloperBoardRound, MoreVertOutlined } from '@vicons/mater
   }
 }
 
-.version-item {
+:deep(.version-item) {
   display: flex;
   align-items: center;
   padding: 10px 20px;
