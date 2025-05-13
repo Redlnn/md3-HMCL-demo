@@ -81,7 +81,7 @@ onClickOutside(verList, () => (versionListShow.value = false))
             <Settings16Regular class="btn-icon" />
             <span class="btn-text">设置</span>
           </router-link>
-          <router-link to="" class="btn">
+          <router-link to="/download/game" class="btn">
             <CloudDownloadOutlined class="btn-icon" />
             <span class="btn-text">下载游戏</span>
           </router-link>

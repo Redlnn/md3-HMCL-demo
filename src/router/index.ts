@@ -1,7 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import type { Component } from 'vue'
+
 import HomeView from '@/views/Home/HomeView.vue'
 import VersionSidebar from '@/views/VersionList/VersionSidebar.vue'
-import type { Component } from 'vue'
+import DownloadSidebar from '@/views/Download/DownloadSidebar.vue'
 
 declare module 'vue-router' {
   interface RouteMeta {
@@ -24,6 +26,19 @@ const router = createRouter({
       component: () => import('@/views/AccountList/AccountView.vue'),
       meta: {
         title: '账户列表',
+      },
+    },
+    {
+      path: '/download',
+      children: [
+        {
+          path: 'game',
+          component: () => import('@/views/Download/Game/GameDownloadView.vue'),
+        },
+      ],
+      meta: {
+        sidebar: DownloadSidebar,
+        title: '下载',
       },
     },
     {
