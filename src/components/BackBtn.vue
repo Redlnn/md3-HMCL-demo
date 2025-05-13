@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 
-import { ArrowCircleLeft12Regular } from '@vicons/fluent'
+import { ArrowBackRound } from '@vicons/material'
 
 const router = useRouter()
 const goBack = () => {
@@ -10,5 +10,5 @@ const goBack = () => {
 </script>
 
 <template>
-  <ArrowCircleLeft12Regular @click="goBack" style="cursor: pointer" />
+  <ArrowBackRound @click="goBack" style="cursor: pointer" />
 </template>

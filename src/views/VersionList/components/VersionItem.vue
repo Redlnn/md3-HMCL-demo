@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { CheckRound, DeveloperBoardRound, MoreVertOutlined } from '@vicons/material'
-import { Settings32Regular } from '@vicons/fluent'
+import { CheckRound, BugReportOutlined, MoreVertOutlined } from '@vicons/material'
+import { Settings16Regular } from '@vicons/fluent'
 
 defineProps<{
   title: string
@@ -22,10 +22,10 @@ defineProps<{
       <div class="type">{{ content }}</div>
     </div>
     <div class="operation-item" alt="测试游戏">
-      <DeveloperBoardRound />
+      <BugReportOutlined />
     </div>
     <div class="operation-item" alt="版本设置">
-      <Settings32Regular />
+      <Settings16Regular />
     </div>
     <div class="operation-item" alt="更多操作">
       <MoreVertOutlined />
