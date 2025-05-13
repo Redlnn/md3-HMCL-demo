@@ -51,6 +51,7 @@ onClickOutside(verList, () => (ShowVersionList.value = false))
       </div>
     </Transition>
     <div class="top-area">
+      <div style="flex-grow: 1"></div>
       <div v-if="showAnnouncement" class="announcement">
         <CloseRound class="close-btn" @click="showAnnouncement = false" />
         <p style="font-weight: bold">开发版提示</p>
@@ -140,6 +141,19 @@ onClickOutside(verList, () => (ShowVersionList.value = false))
   padding: 10px 20px 20px;
 }
 
+.top-area {
+  height: calc(100% - 70px);
+  display: flex;
+  align-items: flex-start;
+}
+
+.bottom-area {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .announcement {
   padding: 10px 20px;
   max-width: 600px;
@@ -165,20 +179,6 @@ onClickOutside(verList, () => (ShowVersionList.value = false))
     color: rgba(var(--mdui-color-on-tertiary-container), 0.6);
     text-decoration: none;
   }
-}
-
-.top-area {
-  height: calc(100% - 70px);
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: flex-start;
-}
-
-.bottom-area {
-  height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .version-list__mask {
