@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { CheckRound, CloseRound } from '@vicons/material'
+import type { Component } from 'vue'
 
 defineProps<{
   icon: Component
