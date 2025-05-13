@@ -42,42 +42,44 @@ import SidebarItem from './components/SidebarItem.vue'
   padding: 10px 0 20px 20px;
 }
 
-:deep(.delete) {
-  width: 16px;
-  height: 16px;
-  margin-left: 8px;
-  color: #000;
-  flex-shrink: 0;
-}
-
-:deep(.content-container) {
-  width: 131px;
-}
-
-:deep(.icon-container) {
-  position: relative;
-
-  &.active .active-icon {
-    visibility: visible;
+:deep(.item-content) {
+  .delete {
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    color: #000;
+    flex-shrink: 0;
   }
 
-  .active-icon {
-    visibility: hidden;
-    position: absolute;
-    bottom: -3px;
-    right: -3px;
-    width: 15px;
-    height: 15px;
-    background-color: var(--color-primary);
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
+  .content-container {
+    width: 131px;
+  }
 
-    svg {
-      width: 10px;
-      height: 10px;
+  .icon-container {
+    position: relative;
+
+    &.active .active-icon {
+      visibility: visible;
+    }
+
+    .active-icon {
+      visibility: hidden;
+      position: absolute;
+      bottom: -3px;
+      right: -3px;
+      width: 15px;
+      height: 15px;
+      background-color: var(--color-primary);
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+
+      svg {
+        width: 10px;
+        height: 10px;
+      }
     }
   }
 }
