@@ -39,7 +39,7 @@ import AccountItem from './components/AccountItem.vue'
     height: 46px;
     cursor: pointer;
     border-radius: 23px;
-    background-color: color-mix(in srgb, var(--color-primary-container), transparent 30%);
+    background-color: rgba(var(--mdui-color-primary-container), 0.7);
     box-shadow: 0 2px 5px color-mix(in srgb, #666, transparent 80%);
 
     svg {
@@ -53,7 +53,8 @@ import AccountItem from './components/AccountItem.vue'
     }
 
     &:hover {
-      background-color: var(--color-primary-container);
+      background-color: rgb(var(--mdui-color-primary-container));
+      color: rgb(var(--mdui-color-on-primary-container));
     }
   }
 }
@@ -72,7 +73,7 @@ import AccountItem from './components/AccountItem.vue'
     margin-bottom: 0;
   }
   &:hover {
-    background-color: color-mix(in srgb, var(--color-primary-container), transparent 20%);
+    background-color: rgb(var(--mdui-color-primary-container), 0.8);
   }
 
   &.active .active-icon {
@@ -86,7 +87,7 @@ import AccountItem from './components/AccountItem.vue'
     right: 0;
     width: 15px;
     height: 15px;
-    background-color: var(--color-primary);
+    background-color: rgb(var(--mdui-color-primary));
     border-radius: 8px;
     display: flex;
     justify-content: center;
@@ -104,7 +105,7 @@ import AccountItem from './components/AccountItem.vue'
     width: 50px;
     height: 50px;
     margin-right: 15px;
-    background-color: var(--color-surface-container);
+    background-color: rgb(var(--mdui-color-surface-container));
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -141,11 +142,11 @@ import AccountItem from './components/AccountItem.vue'
     align-items: center;
 
     &:hover {
-      background-color: var(--color-surface-container-lowest);
+      background-color: rgb(var(--mdui-color-surface-container-lowest));
     }
 
     &:hover.delete {
-      color: var(--color-error);
+      color: rgb(var(--mdui-color-error));
     }
 
     svg {

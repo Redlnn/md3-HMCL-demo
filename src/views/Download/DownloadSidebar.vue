@@ -60,8 +60,8 @@ console.log(route)
   }
 
   &.active {
-    background-color: var(--color-primary-container);
-    color: var(--color-on-primary-container);
+    background-color: rgb(var(--mdui-color-primary-container));
+    color: rgb(var(--mdui-color-on-primary-container));
   }
 }
 </style>

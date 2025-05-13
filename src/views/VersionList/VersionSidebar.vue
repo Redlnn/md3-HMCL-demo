@@ -69,7 +69,7 @@ import SidebarItem from './components/SidebarItem.vue'
       right: -3px;
       width: 15px;
       height: 15px;
-      background-color: var(--color-primary);
+      background-color: rgb(var(--mdui-color-primary));
       border-radius: 8px;
       display: flex;
       justify-content: center;

@@ -86,7 +86,6 @@ header {
   .title {
     font-size: 16px;
     font-weight: bold;
-    color: var(--color-on-surface);
   }
 
   .controls {
@@ -98,7 +97,6 @@ header {
       svg {
         width: 20px;
         height: 20px;
-        color: var(--color-on-surface);
       }
       cursor: pointer;
     }

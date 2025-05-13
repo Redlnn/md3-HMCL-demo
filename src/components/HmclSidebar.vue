@@ -24,8 +24,7 @@
     cursor: pointer;
 
     &:hover {
-      background-color: var(--color-primary-container);
-      color: var(--color-on-primary-container);
+      background-color: rgba(var(--mdui-color-surface-container), 0.7);
     }
 
     .icon-container {
@@ -46,7 +45,7 @@
 
     .content {
       font-size: 12px;
-      color: color-mix(in srgb, var(--color-on-primary-container), transparent 50%);
+      color: rgb(var(--mdui-color-on-surface), 0.5);
       line-height: 14px;
       max-width: 155px;
       overflow: hidden;

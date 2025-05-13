@@ -10,20 +10,20 @@ import { CheckRound, CloudDownloadOutlined, CloseRound } from '@vicons/material'
 import { ref } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 
-const versionListShow = ref(false)
+const ShowVersionList = ref(false)
 const verList = ref<HTMLDivElement>()
-const closeAnnouncement = ref(false)
+const showAnnouncement = ref(true)
 
-onClickOutside(verList, () => (versionListShow.value = false))
+onClickOutside(verList, () => (ShowVersionList.value = false))
 </script>
 
 <template>
   <main class="main-container">
     <Transition name="fade">
-      <div v-if="versionListShow" class="version-list__mask"></div>
+      <div v-if="ShowVersionList" class="version-list__mask"></div>
     </Transition>
     <Transition name="slide-fade">
-      <div v-if="versionListShow" ref="verList" class="version-list">
+      <div v-if="ShowVersionList" ref="verList" class="version-list">
         <div class="version-item active">
           <div class="version-icon">
             <div class="active-icon">
@@ -51,8 +51,8 @@ onClickOutside(verList, () => (versionListShow.value = false))
       </div>
     </Transition>
     <div class="top-area">
-      <div v-if="!closeAnnouncement" class="developer-info">
-        <CloseRound class="close-btn" @click="closeAnnouncement = true" />
+      <div v-if="showAnnouncement" class="announcement">
+        <CloseRound class="close-btn" @click="showAnnouncement = false" />
         <p style="font-weight: bold">开发版提示</p>
         <p>
           你正在使用 HMCL
@@ -68,7 +68,7 @@ onClickOutside(verList, () => (versionListShow.value = false))
       </div>
     </div>
     <div class="bottom-area">
-      <router-link to="/account" class="player-info">
+      <router-link to="/account" class="player-info btn-container">
         <img src="/avatarHead3.png" class="avatar" />
         <div>
           <div class="name">Glavo</div>
@@ -76,7 +76,7 @@ onClickOutside(verList, () => (versionListShow.value = false))
         </div>
       </router-link>
       <div class="right-bottom-container">
-        <div class="btn-container">
+        <div class="more-btn-container btn-container">
           <router-link to="" class="btn">
             <Settings16Regular class="btn-icon" />
             <span class="btn-text">设置</span>
@@ -90,7 +90,7 @@ onClickOutside(verList, () => (versionListShow.value = false))
             <span class="btn-text">版本管理</span>
           </router-link>
         </div>
-        <div class="play-btn">
+        <div class="play-btn btn-container">
           <a class="play-btn-container" href="minecraft://">
             <Play12Filled class="play-icon" />
             <div class="play-btn-text">
@@ -99,7 +99,7 @@ onClickOutside(verList, () => (versionListShow.value = false))
             </div>
           </a>
           <div class="hr"></div>
-          <div class="arrow" @click="versionListShow = true">
+          <div class="arrow" @click="ShowVersionList = true">
             <CaretUp24Filled />
           </div>
         </div>
@@ -133,15 +133,6 @@ onClickOutside(verList, () => (versionListShow.value = false))
   opacity: 0;
 }
 
-.version-list__mask {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: color-mix(in srgb, #333, transparent 50%);
-}
-
 .main-container {
   height: 100%;
   width: 100%;
@@ -149,11 +140,11 @@ onClickOutside(verList, () => (versionListShow.value = false))
   padding: 10px 20px 20px;
 }
 
-.developer-info {
+.announcement {
   padding: 10px 20px;
   max-width: 600px;
-  background-color: color-mix(in srgb, var(--color-tertiary-container), transparent 30%);
-  color: var(--color-on-tertiary-container);
+  background-color: rgba(var(--mdui-color-tertiary-container), 0.7);
+  color: rgb(var(--mdui-color-on-tertiary-container));
   border-radius: 10px;
   position: relative;
 
@@ -171,7 +162,7 @@ onClickOutside(verList, () => (versionListShow.value = false))
     font-size: 14px;
   }
   a {
-    color: color-mix(in srgb, var(--color-on-tertiary-container), white 30%);
+    color: rgba(var(--mdui-color-on-tertiary-container), 0.6);
     text-decoration: none;
   }
 }
@@ -190,14 +181,26 @@ onClickOutside(verList, () => (versionListShow.value = false))
   justify-content: space-between;
 }
 
+.version-list__mask {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(var(--mdui-color-surface-container), 0.5);
+}
+
 .version-list {
+  z-index: 2;
   position: absolute;
   bottom: 90px;
   right: 0;
   margin: 10px 20px 20px;
-  background-color: color-mix(in srgb, var(--color-surface-container), transparent 30%);
+  background-color: rgba(var(--mdui-color-surface-container-lowest-light), 0.7);
   border-radius: 15px;
   padding: 10px 0;
+  box-shadow: var(--mdui-elevation-level4);
 
   .version-item {
     display: flex;
@@ -212,7 +215,7 @@ onClickOutside(verList, () => (versionListShow.value = false))
       margin-bottom: 0;
     }
     &:hover {
-      background-color: color-mix(in srgb, var(--color-surface-container), transparent 20%);
+      background-color: rgba(var(--mdui-color-primary-container), 0.8);
     }
 
     &.active .active-icon {
@@ -237,7 +240,7 @@ onClickOutside(verList, () => (versionListShow.value = false))
         right: 0;
         width: 15px;
         height: 15px;
-        background-color: var(--color-primary);
+        background-color: rgb(var(--mdui-color-primary));
         border-radius: 8px;
         display: flex;
         justify-content: center;
@@ -270,18 +273,24 @@ onClickOutside(verList, () => (versionListShow.value = false))
   }
 }
 
+.btn-container {
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: var(--mdui-elevation-level3);
+  overflow: hidden;
+}
+
 .right-bottom-container {
   display: flex;
   align-items: center;
 }
 
-.btn-container {
-  display: flex;
-  align-items: center;
+.more-btn-container {
   margin-right: 20px;
   height: 70px;
-  border-radius: 20px;
-  background-color: color-mix(in srgb, var(--color-surface-container), transparent 30%);
+  background-color: rgba(var(--mdui-color-surface-container-lowest-light), 0.6);
 
   .btn {
     display: flex;
@@ -290,11 +299,9 @@ onClickOutside(verList, () => (versionListShow.value = false))
     justify-content: center;
     height: 70px;
     width: 70px;
-    border-radius: 20px;
-    cursor: pointer;
 
     &:hover {
-      background-color: color-mix(in srgb, var(--color-surface-container), transparent 10%);
+      background-color: rgba(var(--mdui-color-surface-container-lowest-light), 0.8);
     }
 
     .btn-icon {
@@ -310,18 +317,14 @@ onClickOutside(verList, () => (versionListShow.value = false))
 }
 
 .play-btn {
-  display: inline-flex;
-  align-items: center;
   padding: 0 10px 0 20px;
   width: 220px;
   height: 70px;
-  background-color: color-mix(in srgb, var(--color-primary-container), transparent 30%);
-  color: var(--color-on-primary-container);
-  border-radius: 20px;
-  cursor: pointer;
+  background-color: rgba(var(--mdui-color-primary-container), 0.7);
+  color: rgb(var(--mdui-color-on-primary-container));
 
   &:hover {
-    background-color: color-mix(in srgb, var(--color-primary-container), transparent 10%);
+    background-color: rgb(var(--mdui-color-primary-container));
   }
 
   .play-btn-container {
@@ -360,29 +363,25 @@ onClickOutside(verList, () => (versionListShow.value = false))
   .hr {
     width: 1px;
     height: 30px;
-    background-color: color-mix(in srgb, var(--color-on-primary-container), transparent 80%);
+    background-color: rgba(var(--mdui-color-on-primary-container), 0.2);
     margin: 0 10px;
   }
 
   .arrow {
     svg {
       height: 25px;
-      color: var(--color-on-primary-container);
+      color: rgb(var(--mdui-color-on-primary-container));
     }
   }
 }
 
 .player-info {
-  display: inline-flex;
-  align-items: center;
   padding: 19px 20px;
   margin-right: 10px;
-  background-color: color-mix(in srgb, var(--color-surface-container), transparent 30%);
-  border-radius: 20px;
-  cursor: pointer;
+  background-color: rgba(var(--mdui-color-surface-container-lowest-light), 0.6);
 
   &:hover {
-    background-color: color-mix(in srgb, var(--color-surface-container), transparent 10%);
+    background-color: rgba(var(--mdui-color-surface-container-lowest-light), 0.8);
   }
 
   .avatar {
@@ -398,7 +397,7 @@ onClickOutside(verList, () => (versionListShow.value = false))
 
   .type {
     font-size: 12px;
-    color: color-mix(in srgb, var(--color-on-surface), transparent 50%);
+    color: rgba(var(--mdui-color-on-surface), 0.5);
     line-height: 14px;
   }
 }

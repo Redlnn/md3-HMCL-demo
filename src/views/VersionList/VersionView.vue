@@ -18,34 +18,6 @@ import VersionItem from './components/VersionItem.vue'
   position: relative;
   height: 100%;
   padding: 10px 20px 20px 0;
-
-  .add-version-btn {
-    position: absolute;
-    bottom: 20px;
-    right: 30px;
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    height: 46px;
-    cursor: pointer;
-    border-radius: 23px;
-    background-color: color-mix(in srgb, var(--color-primary-container), transparent 30%);
-    box-shadow: 0 2px 5px color-mix(in srgb, #666, transparent 80%);
-
-    svg {
-      height: 25px;
-      margin-right: 10px;
-    }
-    span {
-      height: 20px;
-      line-height: 20px;
-      font-size: 16px;
-    }
-
-    &:hover {
-      background-color: var(--color-primary-container);
-    }
-  }
 }
 
 :deep(.version-item) {
@@ -62,7 +34,7 @@ import VersionItem from './components/VersionItem.vue'
     margin-bottom: 0;
   }
   &:hover {
-    background-color: color-mix(in srgb, var(--color-primary-container), transparent 20%);
+    background-color: rgba(var(--mdui-color-primary-container), 0.8);
   }
 
   &.active .active-icon {
@@ -76,7 +48,7 @@ import VersionItem from './components/VersionItem.vue'
     right: 0;
     width: 15px;
     height: 15px;
-    background-color: var(--color-primary);
+    background-color: rgba(var(--mdui-color-primary), 0.8);
     border-radius: 8px;
     display: flex;
     justify-content: center;
@@ -94,7 +66,7 @@ import VersionItem from './components/VersionItem.vue'
     width: 50px;
     height: 50px;
     margin-right: 15px;
-    background-color: var(--color-surface-container);
+    background-color: rgba(var(--mdui-color-surface-container), 0.9);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -131,11 +103,7 @@ import VersionItem from './components/VersionItem.vue'
     align-items: center;
 
     &:hover {
-      background-color: var(--color-surface-container-lowest);
-    }
-
-    &:hover.delete {
-      color: var(--color-error);
+      background-color: rgb(var(--mdui-color-surface-container-lowest));
     }
 
     svg {
