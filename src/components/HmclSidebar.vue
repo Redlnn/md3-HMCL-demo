@@ -20,7 +20,8 @@
     align-items: center;
     padding: 10px 16px;
     border-radius: 26px;
-    margin: 5px 0;
+    height: 45px;
+    // margin: 5px 0;
     cursor: pointer;
 
     &:hover {
