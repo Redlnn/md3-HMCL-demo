@@ -4,7 +4,7 @@ import { setColorScheme } from 'mdui/functions/setColorScheme.js'
 import { onMounted, useTemplateRef } from 'vue'
 
 const image = new Image()
-image.src = '/2017-01-19_22.25.09.png'
+image.src = '/2017-01-19_22.25.40.png'
 image.onload = () => {
   getColorFromImage(image).then((color) => setColorScheme(color))
 }

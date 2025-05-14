@@ -45,7 +45,7 @@ const route = useRoute()
   width: 100%;
   height: 100%;
   background-color: rgb(var(--mdui-color-surface));
-  background-image: url('/2017-01-19_22.25.09.png');
+  background-image: url('/2017-01-19_22.25.40.png');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -60,6 +60,6 @@ const route = useRoute()
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(var(--mdui-color-surface), 0.5);
+  background-color: rgba(var(--mdui-color-surface), 0.7);
 }
 </style>

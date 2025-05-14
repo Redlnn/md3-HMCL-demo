@@ -1,3 +1,4 @@
+import 'mdui/mdui.css'
 import './assets/main.css'
 
 import { createApp } from 'vue'
@@ -15,7 +16,7 @@ const main = () => {
 // import { getColorFromImage } from 'mdui/functions/getColorFromImage.js'
 // import { setColorScheme } from 'mdui/functions/setColorScheme.js'
 // const image = new Image()
-// image.src = '/2017-01-19_22.25.09.png'
+// image.src = '/2017-01-19_22.25.40.png'
 // const load = () => {
 //   getColorFromImage(image)
 //     .then((color) => setColorScheme(color))
