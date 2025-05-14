@@ -47,7 +47,7 @@ const router = createRouter({
       name: 'versionList',
       component: () => import('@/views/VersionList/VersionView.vue'),
       meta: {
-        title: '版本列表',
+        title: '版本管理',
         sidebar: VersionSidebar,
       },
     },
