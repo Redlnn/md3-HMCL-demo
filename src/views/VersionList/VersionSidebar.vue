@@ -4,8 +4,9 @@ import {
   AddBoxOutlined,
   DownloadOutlined,
   MoveToInboxOutlined,
-  RefreshRound,
+  // RefreshRound,
 } from '@vicons/material'
+import { Settings16Regular } from '@vicons/fluent'
 
 import SidebarItem from './components/SidebarItem.vue'
 </script>
@@ -29,7 +30,9 @@ import SidebarItem from './components/SidebarItem.vue'
     <div style="flex-grow: 1"></div>
     <sidebar-item :icon="DownloadOutlined" title="下载新游戏" />
     <sidebar-item :icon="MoveToInboxOutlined" title="导入整合包" />
-    <sidebar-item :icon="RefreshRound" title="刷新" />
+    <!-- 为什么不把手动刷新做成定时刷新呢？ -->
+    <!-- <sidebar-item :icon="RefreshRound" title="刷新" /> -->
+    <sidebar-item :icon="Settings16Regular" title="全局游戏设置" />
   </div>
 </template>
 
