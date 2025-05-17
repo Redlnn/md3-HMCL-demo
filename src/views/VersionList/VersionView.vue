@@ -35,6 +35,7 @@ import VersionItem from './components/VersionItem.vue'
   }
   &:hover {
     background-color: rgba(var(--mdui-color-primary-container), 0.8);
+    box-shadow: var(--mdui-elevation-level1);
   }
 
   &.active .active-icon {
