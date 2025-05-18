@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import {
-  CheckRound,
   CompareArrowsRound,
   RefreshRound,
   CheckroomRound,
   ContentCopyRound,
   DeleteOutlineRound,
 } from '@vicons/material'
+
+import ListItem from '@/components/ListItem.vue'
+import OperationButton from '@/components/OperationButton.vue'
 
 defineProps<{
   title: string
@@ -16,31 +18,21 @@ defineProps<{
 </script>
 
 <template>
-  <div class="account-item" :class="{ active: active }">
-    <div class="avatar">
-      <div class="active-icon">
-        <CheckRound />
-      </div>
+  <ListItem :title="title" :subtitle="type" :active="active">
+    <template #icon>
       <slot></slot>
-    </div>
-    <div class="account">
-      <div class="name">{{ title }}</div>
-      <div class="type">{{ type }}</div>
-    </div>
-    <div class="operation-item">
-      <CompareArrowsRound />
-    </div>
-    <div class="operation-item">
-      <RefreshRound />
-    </div>
-    <div class="operation-item">
-      <CheckroomRound />
-    </div>
-    <div class="operation-item">
-      <ContentCopyRound />
-    </div>
-    <div class="operation-item delete">
-      <DeleteOutlineRound />
-    </div>
-  </div>
+    </template>
+    <template #operations>
+      <OperationButton :icon="CompareArrowsRound" tooltip="切换账号" @click="$emit('switch')" />
+      <OperationButton :icon="RefreshRound" tooltip="刷新账号" @click="$emit('refresh')" />
+      <OperationButton :icon="CheckroomRound" tooltip="更换皮肤" @click="$emit('changeSkin')" />
+      <OperationButton :icon="ContentCopyRound" tooltip="复制账号" @click="$emit('copy')" />
+      <OperationButton
+        :icon="DeleteOutlineRound"
+        tooltip="删除账号"
+        danger
+        @click="$emit('delete')"
+      />
+    </template>
+  </ListItem>
 </template>

@@ -3,7 +3,7 @@ import { useRoute } from 'vue-router'
 import { VideogameAssetOutlined, ScatterPlotOutlined } from '@vicons/material'
 import { Box24Regular, PuzzlePiece16Regular, Earth16Regular } from '@vicons/fluent'
 
-import SidebarItem from './components/SidebarItem.vue'
+import SidebarItem from '@/components/SidebarItem.vue'
 
 const route = useRoute()
 console.log(route)
@@ -48,20 +48,5 @@ console.log(route)
   width: 100%;
   height: 100%;
   padding: 10px 0 20px 20px;
-}
-
-:deep(.item-content) {
-  .content-container {
-    width: 131px;
-  }
-
-  .icon-container {
-    position: relative;
-  }
-
-  &.active {
-    background-color: rgba(var(--mdui-color-primary-container), 0.8);
-    color: rgb(var(--mdui-color-on-primary-container));
-  }
 }
 </style>

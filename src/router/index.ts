@@ -22,7 +22,7 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: '/account',
+      path: '/account_list',
       name: 'accountList',
       component: () => import('@/views/AccountList/AccountView.vue'),
       meta: {

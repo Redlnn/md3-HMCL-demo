@@ -10,14 +10,14 @@ const route = useRoute()
 <template>
   <div class="bg"></div>
   <div class="bg-mask"></div>
-  <hmcl-header :title="route.meta.title"></hmcl-header>
+  <hmcl-header :title="route.meta.title" />
   <transition name="fade" mode="out-in">
-    <div style="width: 100%; height: calc(100% - 50px)" :key="route.path">
+    <div class="content-container" :key="route.path">
       <hmcl-sidebar v-if="route.meta.sidebar">
         <component :is="route.meta.sidebar" />
       </hmcl-sidebar>
       <main
-        style="display: inline-block; height: 100%; vertical-align: top"
+        class="main-content"
         :style="{ width: route.meta.sidebar ? 'calc(100% - 270px)' : '100%' }"
       >
         <router-view />
@@ -27,6 +27,7 @@ const route = useRoute()
 </template>
 
 <style scoped lang="scss">
+// 动画相关
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.2s ease;
@@ -37,6 +38,19 @@ const route = useRoute()
   opacity: 0;
 }
 
+// 布局相关
+.content-container {
+  width: 100%;
+  height: calc(100% - 50px);
+}
+
+.main-content {
+  display: inline-block;
+  height: 100%;
+  vertical-align: top;
+}
+
+// 背景样式
 .bg {
   z-index: -2;
   position: absolute;

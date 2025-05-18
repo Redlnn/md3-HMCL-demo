@@ -1,5 +1,13 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
+
 import VersionItem from './components/VersionItem.vue'
+
+const router = useRouter()
+
+function start() {
+  window.open('minecraft://', '_self')
+}
 </script>
 
 <template>
@@ -7,7 +15,13 @@ import VersionItem from './components/VersionItem.vue'
     <version-item title="1.21.5" content="1.21.5" active>
       <img src="/Grass_Block_JE7_BE6.png" alt="Avatar" />
     </version-item>
-    <version-item title="fabric-loader-0.16.14-1.21.5" content="1.21.5, Fabric: 0.16.4">
+    <version-item
+      title="fabric-loader-0.16.14-1.21.5"
+      content="1.21.5, Fabric: 0.16.4"
+      @start="start"
+      @test="start"
+      @settings="router.push('/version_settings/game')"
+    >
       <img src="/fabric.svg" alt="Avatar" />
     </version-item>
   </section>

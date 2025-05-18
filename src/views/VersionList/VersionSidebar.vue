@@ -4,11 +4,10 @@ import {
   AddBoxOutlined,
   DownloadOutlined,
   MoveToInboxOutlined,
-  // RefreshRound,
 } from '@vicons/material'
 import { Settings16Regular } from '@vicons/fluent'
 
-import SidebarItem from './components/SidebarItem.vue'
+import SidebarItem from '@/components/SidebarItem.vue'
 </script>
 
 <template>
@@ -18,21 +17,23 @@ import SidebarItem from './components/SidebarItem.vue'
       title="官方启动器文件夹"
       content="/hmcl-dev/HMCL/.minecraft"
       active
+      active-icon
       can-delete
     />
     <sidebar-item
       :icon="FolderOpenRound"
       title="测试文件夹"
       content="/PCL-Community/PCL2-CE/"
+      active-icon
       can-delete
     />
-    <sidebar-item :icon="AddBoxOutlined" title="添加文件夹" />
+    <sidebar-item :icon="AddBoxOutlined" active-icon title="添加文件夹" />
     <div style="flex-grow: 1"></div>
-    <sidebar-item :icon="DownloadOutlined" title="下载新游戏" />
-    <sidebar-item :icon="MoveToInboxOutlined" title="导入整合包" />
+    <sidebar-item :icon="DownloadOutlined" active-icon title="下载新游戏" />
+    <sidebar-item :icon="MoveToInboxOutlined" active-icon title="导入整合包" />
     <!-- 为什么不把手动刷新做成定时刷新呢？ -->
-    <!-- <sidebar-item :icon="RefreshRound" title="刷新" /> -->
-    <sidebar-item :icon="Settings16Regular" title="全局游戏设置" />
+    <!-- <sidebar-item :icon="RefreshRound" active-icon title="刷新" /> -->
+    <sidebar-item :icon="Settings16Regular" active-icon title="全局游戏设置" />
   </div>
 </template>
 
@@ -43,47 +44,5 @@ import SidebarItem from './components/SidebarItem.vue'
   width: 100%;
   height: 100%;
   padding: 10px 0 20px 20px;
-}
-
-:deep(.item-content) {
-  .delete {
-    width: 16px;
-    height: 16px;
-    margin-left: 8px;
-    color: #000;
-    flex-shrink: 0;
-  }
-
-  .content-container {
-    width: 131px;
-  }
-
-  .icon-container {
-    position: relative;
-
-    &.active .active-icon {
-      visibility: visible;
-    }
-
-    .active-icon {
-      visibility: hidden;
-      position: absolute;
-      bottom: -3px;
-      right: -3px;
-      width: 15px;
-      height: 15px;
-      background-color: rgb(var(--mdui-color-primary));
-      border-radius: 8px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-
-      svg {
-        width: 10px;
-        height: 10px;
-      }
-    }
-  }
 }
 </style>

@@ -1,6 +1,9 @@
 <script setup lang="ts">
-import { CheckRound, BugReportOutlined, MoreVertOutlined } from '@vicons/material'
+import { BugReportOutlined, MoreVertOutlined } from '@vicons/material'
 import { Settings16Regular, Play12Filled } from '@vicons/fluent'
+
+import ListItem from '@/components/ListItem.vue'
+import OperationButton from '@/components/OperationButton.vue'
 
 defineProps<{
   title: string
@@ -10,28 +13,15 @@ defineProps<{
 </script>
 
 <template>
-  <div class="version-item" :class="{ active: active }">
-    <div class="avatar">
-      <div class="active-icon">
-        <CheckRound />
-      </div>
+  <ListItem :title="title" :subtitle="content" :active="active">
+    <template #icon>
       <slot></slot>
-    </div>
-    <div class="version">
-      <div class="name">{{ title }}</div>
-      <div class="type">{{ content }}</div>
-    </div>
-    <div class="operation-item" alt="启动游戏">
-      <Play12Filled />
-    </div>
-    <div class="operation-item" alt="测试游戏">
-      <BugReportOutlined />
-    </div>
-    <router-link to="/version_settings/game" class="operation-item" alt="版本设置">
-      <Settings16Regular />
-    </router-link>
-    <div class="operation-item" alt="更多操作">
-      <MoreVertOutlined />
-    </div>
-  </div>
+    </template>
+    <template #operations>
+      <OperationButton :icon="Play12Filled" tooltip="启动游戏" @click="$emit('start')" />
+      <OperationButton :icon="BugReportOutlined" tooltip="测试游戏" @click="$emit('test')" />
+      <OperationButton :icon="Settings16Regular" tooltip="版本设置" @click="$emit('settings')" />
+      <OperationButton :icon="MoreVertOutlined" tooltip="更多操作" @click="$emit('more')" />
+    </template>
+  </ListItem>
 </template>

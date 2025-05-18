@@ -25,7 +25,7 @@
     cursor: pointer;
 
     &:hover {
-      background-color: rgba(var(--mdui-color-surface-container), 0.7);
+      background-color: rgba(var(--mdui-color-surface-container-dark), 0.1);
     }
 
     .icon-container {
