@@ -9,13 +9,13 @@ defineProps<{
 </script>
 
 <template>
-  <div class="operation-item" :class="{ danger }" :title="tooltip">
+  <div class="operation-btn" :class="{ 'operation-btn--danger': danger }" :title="tooltip">
     <component :is="icon" />
   </div>
 </template>
 
 <style lang="scss" scoped>
-.operation-item {
+.operation-btn {
   margin-left: 5px;
   cursor: pointer;
   width: 35px;
@@ -28,13 +28,11 @@ defineProps<{
 
   &:hover {
     background-color: rgb(var(--mdui-color-surface-container-lowest));
-
-    &.danger {
-      background-color: rgb(var(--mdui-color-error-container));
-      color: rgb(var(--mdui-color-on-error-container));
-    }
   }
-
+  &--danger:hover {
+    background-color: rgb(var(--mdui-color-error-container));
+    color: rgb(var(--mdui-color-on-error-container));
+  }
   svg {
     width: 25px;
     height: 25px;

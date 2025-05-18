@@ -1,6 +1,8 @@
 <template>
   <nav class="sidebar">
-    <slot></slot>
+    <div class="sidebar-container">
+      <slot></slot>
+    </div>
   </nav>
 </template>
 
@@ -9,81 +11,17 @@
   display: inline-block;
   width: 270px;
   height: 100%;
-  padding-right: 20px;
+  padding: 10px 20px 20px 20px;
+
+  .sidebar-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
 
   .hr {
     height: 20px;
-  }
-
-  .item-content {
-    display: flex;
-    align-items: center;
-    padding: 10px 16px;
-    border-radius: 26px;
-    height: 45px;
-    // margin: 5px 0;
-    cursor: pointer;
-
-    &:hover {
-      background-color: rgba(var(--mdui-color-surface-container-dark), 0.1);
-    }
-
-    .icon-container {
-      display: flex;
-      justify-content: center;
-      width: 30px;
-      margin-right: 13px;
-    }
-
-    .icon {
-      height: 25px;
-    }
-
-    .title {
-      font-size: 14px;
-      line-height: 18px;
-    }
-
-    .content {
-      font-size: 12px;
-      color: rgb(var(--mdui-color-on-surface), 0.5);
-      line-height: 14px;
-      max-width: 155px;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      -o-text-overflow: ellipsis;
-    }
-  }
-
-  .item {
-    display: flex;
-    align-items: center;
-    padding: 10px 16px;
-    border-radius: 26px;
-    height: 52px;
-    margin: 5px 0;
-    cursor: pointer;
-
-    &:hover {
-      background-color: var(--color-primary-container);
-      color: var(--color-on-primary-container);
-    }
-
-    .icon-container {
-      display: flex;
-      justify-content: center;
-      width: 30px;
-      margin-right: 13px;
-    }
-
-    .icon {
-      height: 25px;
-    }
-
-    .title {
-      font-size: 14px;
-    }
   }
 }
 </style>

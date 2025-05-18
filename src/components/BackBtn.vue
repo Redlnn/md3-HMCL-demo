@@ -10,5 +10,11 @@ const goBack = () => {
 </script>
 
 <template>
-  <ArrowBackRound @click="goBack" style="cursor: pointer" />
+  <ArrowBackRound @click="goBack" class="back-btn--pointer" />
 </template>
+
+<style scoped>
+.back-btn--pointer {
+  cursor: pointer;
+}
+</style>

@@ -9,18 +9,18 @@ defineProps<{
 </script>
 
 <template>
-  <div class="list-item" :class="{ active }">
-    <div class="icon">
-      <div v-if="active" class="active-icon">
+  <div class="list-item" :class="{ 'list-item--active': active }">
+    <div class="list-item__icon">
+      <div v-if="active" class="list-item__active-icon">
         <CheckRound />
       </div>
       <slot name="icon"></slot>
     </div>
-    <div class="content">
-      <div class="title">{{ title }}</div>
-      <div v-if="subtitle" class="subtitle">{{ subtitle }}</div>
+    <div class="list-item__content flex-grow-1">
+      <div class="list-item__title">{{ title }}</div>
+      <div v-if="subtitle" class="list-item__subtitle">{{ subtitle }}</div>
     </div>
-    <div class="operations">
+    <div class="list-item__operations">
       <slot name="operations"></slot>
     </div>
   </div>
@@ -40,11 +40,11 @@ defineProps<{
     background-color: rgba(var(--mdui-color-surface-container-dark), 0.1);
   }
 
-  &.active .icon .active-icon {
+  &--active .list-item__icon .list-item__active-icon {
     visibility: visible;
   }
 
-  .icon {
+  &__icon {
     position: relative;
     width: 50px;
     height: 50px;
@@ -61,7 +61,7 @@ defineProps<{
       object-fit: contain;
     }
 
-    .active-icon {
+    .list-item__active-icon {
       visibility: hidden;
       position: absolute;
       bottom: 0;
@@ -82,28 +82,24 @@ defineProps<{
     }
   }
 
-  .content {
-    flex: 1;
+  &__content {
     min-width: 0;
-
-    .title {
-      font-size: 16px;
-      font-weight: bold;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .subtitle {
-      font-size: 13px;
-      color: rgba(var(--mdui-color-on-surface), 0.6);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
   }
-
-  .operations {
+  &__title {
+    font-size: 16px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &__subtitle {
+    font-size: 13px;
+    color: rgba(var(--mdui-color-on-surface), 0.6);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &__operations {
     display: flex;
     align-items: center;
     margin-left: 10px;

@@ -9,22 +9,22 @@ import { CheckRound } from '@vicons/material'
 </script>
 
 <template>
-  <div class="version-item" :class="{ active }">
-    <div class="version-icon">
-      <div v-if="active" class="active-icon">
+  <div class="version-card" :class="{ 'version-card--active': active }">
+    <div class="version-card__icon">
+      <div v-if="active" class="version-card__active-icon">
         <CheckRound />
       </div>
       <img :src="icon" />
     </div>
-    <div class="version">
-      <div class="name">{{ name }}</div>
-      <div class="type">{{ type }}</div>
+    <div class="version-card__info">
+      <div class="version-card__name">{{ name }}</div>
+      <div class="version-card__type">{{ type }}</div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.version-item {
+.version-card {
   display: flex;
   align-items: center;
   padding: 10px 20px;
@@ -35,11 +35,11 @@ import { CheckRound } from '@vicons/material'
     background-color: rgba(var(--mdui-color-primary-container), 0.8);
   }
 
-  &.active .active-icon {
+  &--active .version-card__active-icon {
     visibility: visible !important;
   }
 
-  .version-icon {
+  &__icon {
     position: relative;
     width: 30px;
     height: 30px;
@@ -50,7 +50,7 @@ import { CheckRound } from '@vicons/material'
       border-radius: 50%;
     }
 
-    .active-icon {
+    .version-card__active-icon {
       visibility: hidden;
       position: absolute;
       bottom: 0;
@@ -71,21 +71,19 @@ import { CheckRound } from '@vicons/material'
     }
   }
 
-  .version {
+  &__info {
     margin-left: 15px;
-
-    .name {
-      font-weight: bold;
-      line-height: 16px;
-      font-size: 16px;
-      margin-bottom: 2px;
-    }
-
-    .type {
-      font-size: 12px;
-      color: color-mix(in srgb, var(--color-on-surface), transparent 50%);
-      line-height: 12px;
-    }
+  }
+  &__name {
+    font-weight: bold;
+    line-height: 16px;
+    font-size: 16px;
+    margin-bottom: 2px;
+  }
+  &__type {
+    font-size: 12px;
+    color: color-mix(in srgb, var(--color-on-surface), transparent 50%);
+    line-height: 12px;
   }
 }
 </style>

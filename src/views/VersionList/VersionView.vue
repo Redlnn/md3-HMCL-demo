@@ -12,7 +12,14 @@ function start() {
 
 <template>
   <section class="version-list">
-    <version-item title="1.21.5" content="1.21.5" active>
+    <version-item
+      title="1.21.5"
+      content="1.21.5"
+      active
+      @start="start"
+      @test="start"
+      @settings="router.push('/version_settings/game')"
+    >
       <img src="/Grass_Block_JE7_BE6.png" alt="Avatar" />
     </version-item>
     <version-item

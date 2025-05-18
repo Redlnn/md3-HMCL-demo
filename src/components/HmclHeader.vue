@@ -17,19 +17,19 @@ withDefaults(
 </script>
 
 <template>
-  <header>
-    <div style="margin: auto 0">
+  <header class="hmcl-header">
+    <div class="hmcl-header__left" style="margin: auto 0">
       <transition name="slide-fade">
-        <div style="display: inline-flex; align-items: center; gap: 10px" :key="title">
-          <span class="icon">
+        <div class="hmcl-header__row" :key="title">
+          <span class="hmcl-header__icon">
             <img v-if="route.path === '/'" src="/hmcl.png" alt="icon" />
             <back-btn v-else />
           </span>
-          <span class="title">{{ title }}</span>
+          <span class="hmcl-header__title">{{ title }}</span>
         </div>
       </transition>
     </div>
-    <div class="controls">
+    <div class="hmcl-header__controls">
       <span>
         <QuestionCircle48Regular />
       </span>
@@ -69,7 +69,13 @@ withDefaults(
   opacity: 0;
 }
 
-header {
+.hmcl-header__row {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hmcl-header {
   width: 100%;
   height: 50px;
   display: flex;
@@ -77,22 +83,19 @@ header {
   padding: 0 20px;
   border-radius: 6px;
 
-  .icon,
-  .icon img,
-  .icon svg {
+  .hmcl-header__icon,
+  .hmcl-header__icon img,
+  .hmcl-header__icon svg {
     height: 25px;
   }
-
-  .title {
+  .hmcl-header__title {
     font-size: 16px;
     font-weight: bold;
   }
-
-  .controls {
+  .hmcl-header__controls {
     display: flex;
     align-items: center;
     gap: 10px;
-
     span {
       svg {
         width: 20px;

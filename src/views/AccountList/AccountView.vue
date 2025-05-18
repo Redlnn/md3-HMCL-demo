@@ -27,7 +27,7 @@ const accounts = [
 </script>
 
 <template>
-  <section class="account-list">
+  <div class="account-list">
     <AccountItem
       v-for="account in accounts"
       :key="account.id"
@@ -41,12 +41,11 @@ const accounts = [
     >
       <img :src="account.avatar" alt="Avatar" />
     </AccountItem>
-
-    <div class="add-account-btn">
+    <div class="account-list__add-btn">
       <PlusRound />
       <span>添加账号</span>
     </div>
-  </section>
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -54,36 +53,33 @@ const accounts = [
   position: relative;
   height: 100%;
   padding: 10px 20px 20px;
-}
 
-.add-account-btn {
-  position: absolute;
-  bottom: 20px;
-  right: 30px;
-  display: flex;
-  align-items: center;
-  padding: 10px 20px;
-  height: 46px;
-  cursor: pointer;
-  border-radius: 23px;
-  background-color: rgba(var(--mdui-color-primary-container), 0.7);
-  box-shadow: var(--mdui-elevation-level2);
-  transition: all 0.3s ease;
-
-  svg {
-    height: 25px;
-    margin-right: 10px;
-  }
-
-  span {
-    height: 20px;
-    line-height: 20px;
-    font-size: 16px;
-  }
-
-  &:hover {
-    background-color: rgb(var(--mdui-color-primary-container));
-    color: rgb(var(--mdui-color-on-primary-container));
+  &__add-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    height: 46px;
+    cursor: pointer;
+    border-radius: 23px;
+    background-color: rgba(var(--mdui-color-primary-container), 0.7);
+    box-shadow: var(--mdui-elevation-level2);
+    transition: all 0.3s ease;
+    svg {
+      height: 25px;
+      margin-right: 10px;
+    }
+    span {
+      height: 20px;
+      line-height: 20px;
+      font-size: 16px;
+    }
+    &:hover {
+      background-color: rgb(var(--mdui-color-primary-container));
+      color: rgb(var(--mdui-color-on-primary-container));
+    }
   }
 }
 </style>

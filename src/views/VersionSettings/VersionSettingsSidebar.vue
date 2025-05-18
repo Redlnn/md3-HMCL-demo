@@ -3,74 +3,46 @@ import { BuildOutlined, BugReportOutlined, FolderOpenRound, TuneRound } from '@v
 import { Settings16Regular, PuzzlePiece16Regular, Earth16Regular } from '@vicons/fluent'
 import { useRoute } from 'vue-router'
 
-import SidebarItem from './components/SidebarItem.vue'
+import SidebarItem from '@/components/SidebarItem.vue'
 
 const route = useRoute()
 </script>
 
 <template>
-  <div class="sidebar-container">
-    <sidebar-item
-      :icon="Settings16Regular"
-      :active="route.path === '/version_settings/game'"
-      title="游戏设置"
-    />
-    <sidebar-item
-      :icon="BuildOutlined"
-      :active="route.path === '/version_settings/install'"
-      title="自动安装"
-    />
-    <sidebar-item
-      :icon="PuzzlePiece16Regular"
-      :active="route.path === '/version_settings/mods'"
-      title="模组管理"
-    />
-    <sidebar-item
-      :icon="Earth16Regular"
-      :active="route.path === '/version_settings/worlds'"
-      title="世界/数据包"
-    />
-    <div style="flex-grow: 1"></div>
-    <sidebar-item
-      :icon="BugReportOutlined"
-      :active="route.path === '/version_settings/debug'"
-      title="测试游戏"
-    />
-    <sidebar-item
-      :icon="FolderOpenRound"
-      :active="route.path === '/version_settings/browse'"
-      title="浏览"
-    />
-    <sidebar-item
-      :icon="TuneRound"
-      :active="route.path === '/version_settings/manage'"
-      title="管理"
-    />
-  </div>
+  <sidebar-item
+    :icon="Settings16Regular"
+    :active="route.path === '/version_settings/game'"
+    title="游戏设置"
+  />
+  <sidebar-item
+    :icon="BuildOutlined"
+    :active="route.path === '/version_settings/install'"
+    title="自动安装"
+  />
+  <sidebar-item
+    :icon="PuzzlePiece16Regular"
+    :active="route.path === '/version_settings/mods'"
+    title="模组管理"
+  />
+  <sidebar-item
+    :icon="Earth16Regular"
+    :active="route.path === '/version_settings/worlds'"
+    title="世界/数据包"
+  />
+  <div class="flex-grow-1"></div>
+  <sidebar-item
+    :icon="BugReportOutlined"
+    :active="route.path === '/version_settings/debug'"
+    title="测试游戏"
+  />
+  <sidebar-item
+    :icon="FolderOpenRound"
+    :active="route.path === '/version_settings/browse'"
+    title="浏览"
+  />
+  <sidebar-item
+    :icon="TuneRound"
+    :active="route.path === '/version_settings/manage'"
+    title="管理"
+  />
 </template>
-
-<style scoped lang="scss">
-.sidebar-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  padding: 10px 0 20px 20px;
-}
-
-:deep(.item-content) {
-  .content-container {
-    width: 131px;
-  }
-
-  .icon-container {
-    position: relative;
-  }
-
-  &.active {
-    background-color: rgba(var(--mdui-color-primary-container), 0.8);
-    color: rgb(var(--mdui-color-on-primary-container));
-    box-shadow: var(--mdui-elevation-level1);
-  }
-}
-</style>

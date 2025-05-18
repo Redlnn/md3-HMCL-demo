@@ -14,28 +14,43 @@ defineProps<{
 
 <template>
   <div
-    class="item-content"
-    :class="[active ? 'active' : '', , activeIcon ? 'hightlight__icon' : 'hightlight__item']"
+    class="sidebar-item"
+    :class="[
+      active ? 'sidebar-item--active' : '',
+      activeIcon ? 'sidebar-item--active-icon' : 'sidebar-item--active-item',
+    ]"
   >
-    <div class="icon-container">
-      <component :is="icon" class="icon" />
-      <div v-if="active && activeIcon" class="active-icon">
+    <div class="sidebar-item__icon-container">
+      <component :is="icon" class="sidebar-item__icon" />
+      <div v-if="active && activeIcon" class="sidebar-item__active-icon">
         <CheckRound />
       </div>
     </div>
-    <div class="content-container">
-      <div class="title">{{ title }}</div>
-      <div v-if="content" class="content">{{ content }}</div>
+    <div class="sidebar-item__content-container">
+      <div class="sidebar-item__title">{{ title }}</div>
+      <div v-if="content" class="sidebar-item__content">{{ content }}</div>
     </div>
-    <div class="delete" @click="$emit('delete')">
+    <div class="sidebar-item__delete" @click="$emit('delete')">
       <CloseRound v-if="canDelete" />
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.item-content {
-  .delete {
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 26px;
+  height: 45px;
+  // margin: 5px 0;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(var(--mdui-color-surface-container-dark), 0.1);
+  }
+
+  &__delete {
     width: 20px;
     height: 20px;
     margin-left: 8px;
@@ -45,34 +60,33 @@ defineProps<{
     display: flex;
     align-items: center;
     justify-content: center;
-
     &:hover {
       background-color: rgb(var(--mdui-color-surface-container-lowest));
     }
-
     svg {
       height: 16px;
     }
   }
 
-  &.active.hightlight__item {
+  &--active.sidebar-item--active-item {
     background-color: rgba(var(--mdui-color-primary-container), 0.8);
     color: rgb(var(--mdui-color-on-primary-container));
     box-shadow: var(--mdui-elevation-level1);
   }
-
-  &.active.hightlight__icon .active-icon {
+  &--active-icon .sidebar-item__active-icon {
     visibility: visible !important;
   }
 
-  .content-container {
+  &__content-container {
     width: 131px;
   }
-
-  .icon-container {
+  &__icon-container {
+    display: flex;
+    justify-content: center;
+    width: 30px;
+    margin-right: 13px;
     position: relative;
-
-    .active-icon {
+    .sidebar-item__active-icon {
       visibility: hidden;
       position: absolute;
       bottom: -3px;
@@ -85,12 +99,28 @@ defineProps<{
       justify-content: center;
       align-items: center;
       color: #fff;
-
       svg {
         width: 10px;
         height: 10px;
       }
     }
+  }
+  &__icon {
+    height: 25px;
+  }
+  &__title {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  &__content {
+    font-size: 12px;
+    color: rgb(var(--mdui-color-on-surface), 0.5);
+    line-height: 14px;
+    max-width: 155px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
   }
 }
 </style>

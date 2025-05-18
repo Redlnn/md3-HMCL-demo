@@ -107,10 +107,8 @@ const memoryAllocation = ref(4096)
               <input v-model="memoryAllocation" type="number" />
               MB
             </span>
-            <div style="display: flex; align-items: center">
-              <span style="width: 55px; margin-left: 15px; font-size: 13px; flex-shrink: 0">
-                自动分配
-              </span>
+            <div class="flex-align-center">
+              <span class="memory-auto-label"> 自动分配 </span>
               <mdui-switch
                 :checked="autoMemory"
                 @change="autoMemory = !autoMemory"
@@ -263,6 +261,18 @@ const memoryAllocation = ref(4096)
     padding: 5px 8px;
     border-radius: 11px;
   }
+}
+
+.flex-align-center {
+  display: flex;
+  align-items: center;
+}
+
+.memory-auto-label {
+  width: 55px;
+  margin-left: 15px;
+  font-size: 13px;
+  flex-shrink: 0;
 }
 
 mdui-switch {

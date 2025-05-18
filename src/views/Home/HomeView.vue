@@ -77,8 +77,7 @@ const versions = [
       <!-- 公告卡片 -->
       <Card
         v-if="showAnnouncement"
-        class="announcement"
-        style="background-color: rgba(var(--mdui-color-tertiary-container), 0.7)"
+        class="announcement announcement--tertiary-bg"
         title="开发版提示"
         padding="20px"
       >
@@ -199,6 +198,10 @@ const versions = [
       text-decoration: underline;
     }
   }
+}
+
+.announcement--tertiary-bg {
+  background-color: rgba(var(--mdui-color-tertiary-container), 0.7);
 }
 
 // 版本列表样式

@@ -10,15 +10,15 @@ defineProps<{
 
 <template>
   <div class="play-btn">
-    <a class="play-btn-container" href="minecraft://">
-      <Play12Filled class="play-icon" />
-      <div class="play-btn-text">
-        <p class="launch">开始游戏</p>
-        <p class="version">{{ version }}</p>
+    <a class="play-btn__container" href="minecraft://">
+      <Play12Filled class="play-btn__icon" />
+      <div class="play-btn__text flex-grow-1">
+        <p class="play-btn__launch">开始游戏</p>
+        <p class="play-btn__version">{{ version }}</p>
       </div>
     </a>
-    <div class="hr"></div>
-    <div class="arrow" @click="onVersionSelect">
+    <div class="play-btn__hr"></div>
+    <div class="play-btn__arrow" @click="onVersionSelect">
       <KeyboardArrowUpRound />
     </div>
   </div>
@@ -42,7 +42,7 @@ defineProps<{
     background-color: rgb(var(--mdui-color-primary-container));
   }
 
-  .play-btn-container {
+  &__container {
     display: flex;
     align-items: center;
     width: 100%;
@@ -50,47 +50,38 @@ defineProps<{
     text-decoration: none;
     color: inherit;
   }
-
-  .play-icon {
+  &__icon {
     height: 34px;
     width: 34px;
     margin-right: 10px;
   }
-
-  .play-btn-text {
+  &__text {
     max-width: 100px;
-    flex: 1;
   }
-
-  .launch {
+  &__launch {
     font-size: 18px;
     font-weight: bold;
   }
-
-  .version {
+  &__version {
     font-size: 13px;
     max-width: min-content;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
   }
-
-  .hr {
+  &__hr {
     width: 1px;
     height: 30px;
     background-color: rgba(var(--mdui-color-on-primary-container), 0.2);
     margin: 0 10px;
   }
-
-  .arrow {
+  &__arrow {
     cursor: pointer;
     border-radius: 50%;
     transition: background-color 0.3s ease;
-
     &:hover {
       background-color: rgba(var(--mdui-color-on-primary-container), 0.1);
     }
-
     svg {
       height: 25px;
       color: rgb(var(--mdui-color-on-primary-container));
