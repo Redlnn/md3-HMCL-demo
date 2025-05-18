@@ -14,7 +14,7 @@ const sidebarItems: SidebarItemType[] = [
   {
     icon: FolderOpenRound,
     title: '官方启动器文件夹',
-    content: '/hmcl-dev/HMCL/.minecraft',
+    subtitle: '/hmcl-dev/HMCL/.minecraft',
     active: true,
     activeIcon: true,
     canDelete: true,
@@ -22,7 +22,7 @@ const sidebarItems: SidebarItemType[] = [
   {
     icon: FolderOpenRound,
     title: '测试文件夹',
-    content: '/PCL-Community/PCL2-CE/',
+    subtitle: '/PCL-Community/PCL2-CE/',
     activeIcon: true,
     canDelete: true,
   },
@@ -65,7 +65,7 @@ const sidebarItems: SidebarItemType[] = [
       v-else
       :icon="item.icon"
       :title="item.title"
-      :content="item.content"
+      :subtitle="item.subtitle"
       :active="item.active"
       :active-icon="item.activeIcon"
       :can-delete="item.canDelete"
