@@ -4,7 +4,7 @@ import type { Component } from 'vue'
 import HomeView from '@/views/Home/HomeView.vue'
 import VersionSidebar from '@/views/VersionList/VersionSidebar.vue'
 import DownloadSidebar from '@/views/Download/DownloadSidebar.vue'
-import VersionSettingsSidebar from '@/views/VersionSettings/VersionSettingsSidebar.vue'
+import VersionSettingsSidebar from '@/views/VersionManage/VersionManageSidebar.vue'
 
 declare module 'vue-router' {
   interface RouteMeta {
@@ -57,7 +57,7 @@ const router = createRouter({
       children: [
         {
           path: 'game',
-          component: () => import('@/views/VersionSettings/Game/GameSettingsView.vue'),
+          component: () => import('@/views/VersionManage/Game/GameSettingsView.vue'),
         },
       ],
       meta: {
