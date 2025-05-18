@@ -73,7 +73,7 @@ const versions = [
 
     <!-- 主要内容区域 -->
     <div class="top-area">
-      <div style="flex-grow: 1"></div>
+      <div class="flex-grow"></div>
       <!-- 公告卡片 -->
       <Card
         v-if="showAnnouncement"

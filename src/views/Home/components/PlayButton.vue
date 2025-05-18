@@ -12,7 +12,7 @@ defineProps<{
   <div class="play-btn">
     <a class="play-btn__container" href="minecraft://">
       <Play12Filled class="play-btn__icon" />
-      <div class="play-btn__text flex-grow-1">
+      <div class="play-btn__text flex-grow">
         <p class="play-btn__launch">开始游戏</p>
         <p class="play-btn__version">{{ version }}</p>
       </div>

@@ -16,7 +16,7 @@ defineProps<{
       </div>
       <slot name="icon"></slot>
     </div>
-    <div class="list-item__content flex-grow-1">
+    <div class="list-item__content flex-grow">
       <div class="list-item__title">{{ title }}</div>
       <div v-if="subtitle" class="list-item__subtitle">{{ subtitle }}</div>
     </div>

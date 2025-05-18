@@ -27,7 +27,7 @@ const memoryAllocation = ref(4096)
       <p class="anno-title">
         <InfoOutlined></InfoOutlined>
         <span>版本隔离</span>
-        <span style="flex-grow: 1"></span>
+        <span class="flex-grow"></span>
         <mdui-switch checked-icon="" style="height: 20px"></mdui-switch>
       </p>
       <p>
@@ -116,7 +116,7 @@ const memoryAllocation = ref(4096)
               ></mdui-switch>
             </div>
           </div>
-          <div class="memory-usage" style="flex-grow: 1">
+          <div class="memory-usage">
             <mdui-linear-progress value="0.63" style="--shape-corner: 2px"></mdui-linear-progress>
             <div class="memory-usage__value">设备内存已使用 20.1G / 总内存 32G</div>
           </div>

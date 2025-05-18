@@ -24,6 +24,6 @@ a {
   text-decoration: none;
 }
 
-.flex-grow-1 {
+.flex-grow {
   flex-grow: 1;
 }
