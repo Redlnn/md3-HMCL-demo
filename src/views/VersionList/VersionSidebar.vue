@@ -8,29 +8,67 @@ import {
 import { Settings16Regular } from '@vicons/fluent'
 
 import SidebarItem from '@/components/SidebarItem.vue'
+import type { SidebarItemType } from '@/components/SidebarItem.vue'
+
+const sidebarItems: SidebarItemType[] = [
+  {
+    icon: FolderOpenRound,
+    title: '官方启动器文件夹',
+    content: '/hmcl-dev/HMCL/.minecraft',
+    active: true,
+    activeIcon: true,
+    canDelete: true,
+  },
+  {
+    icon: FolderOpenRound,
+    title: '测试文件夹',
+    content: '/PCL-Community/PCL2-CE/',
+    activeIcon: true,
+    canDelete: true,
+  },
+  {
+    icon: AddBoxOutlined,
+    title: '添加文件夹',
+    activeIcon: true,
+  },
+  // 分隔符
+  {
+    divider: true,
+  },
+  {
+    icon: DownloadOutlined,
+    title: '下载新游戏',
+    activeIcon: true,
+  },
+  {
+    icon: MoveToInboxOutlined,
+    title: '导入整合包',
+    activeIcon: true,
+  },
+  // {
+  //   icon: RefreshRound,
+  //   title: '刷新',
+  //   activeIcon: true,
+  // },
+  {
+    icon: Settings16Regular,
+    title: '全局游戏设置',
+    activeIcon: true,
+  },
+]
 </script>
 
 <template>
-  <sidebar-item
-    :icon="FolderOpenRound"
-    title="官方启动器文件夹"
-    content="/hmcl-dev/HMCL/.minecraft"
-    active
-    active-icon
-    can-delete
-  />
-  <sidebar-item
-    :icon="FolderOpenRound"
-    title="测试文件夹"
-    content="/PCL-Community/PCL2-CE/"
-    active-icon
-    can-delete
-  />
-  <sidebar-item :icon="AddBoxOutlined" active-icon title="添加文件夹" />
-  <div class="flex-grow-1"></div>
-  <sidebar-item :icon="DownloadOutlined" active-icon title="下载新游戏" />
-  <sidebar-item :icon="MoveToInboxOutlined" active-icon title="导入整合包" />
-  <!-- 为什么不把手动刷新做成定时刷新呢？ -->
-  <!-- <sidebar-item :icon="RefreshRound" active-icon title="刷新" /> -->
-  <sidebar-item :icon="Settings16Regular" active-icon title="全局游戏设置" />
+  <template v-for="(item, idx) in sidebarItems" :key="idx">
+    <div v-if="item.divider" class="flex-grow-1"></div>
+    <sidebar-item
+      v-else
+      :icon="item.icon"
+      :title="item.title"
+      :content="item.content"
+      :active="item.active"
+      :active-icon="item.activeIcon"
+      :can-delete="item.canDelete"
+    />
+  </template>
 </template>
