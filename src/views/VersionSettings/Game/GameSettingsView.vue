@@ -1,6 +1,15 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { InfoOutlined, EditOutlined, CloseRound, KeyboardArrowRightRound } from '@vicons/material'
+import {
+  InfoOutlined,
+  EditOutlined,
+  CloseRound,
+  KeyboardArrowRightRound,
+  CoffeeRound,
+  AnchorRound,
+  LinkOffRound,
+  MemoryRound,
+} from '@vicons/material'
 import 'mdui/components/switch.js'
 import 'mdui/components/button.js'
 import 'mdui/components/slider.js'
@@ -15,32 +24,45 @@ const memoryAllocation = ref(4096)
 <template>
   <section class="game-settings">
     <div class="announcement">
-      <p class="anno-title"><InfoOutlined></InfoOutlined>提示</p>
-      <p>
-        在“版本隔离”中选择“各版本独立”使当前版本独立存放设置、存档、模组等数据，
-        使用模组时建议启用此选项以避免不同版本模组冲突。修改此选项后需自行移动设置、模组、存档等文件。
+      <p class="anno-title">
+        <InfoOutlined></InfoOutlined>
+        <span>版本隔离</span>
+        <span style="flex-grow: 1"></span>
+        <mdui-switch checked-icon="" style="height: 20px"></mdui-switch>
       </p>
-      <div class="version-isolation-switch">
-        <span :style="{ fontWeight: versionIsolation ? 'bold' : undefined }">
-          启用版本特定的游戏设置（不影响其他游戏版本）
-        </span>
-        <div style="flex-grow: 1"></div>
-        <mdui-switch
-          checked-icon=""
-          :checked="versionIsolation"
-          @change="versionIsolation = !versionIsolation"
-        ></mdui-switch>
-      </div>
+      <p>
+        使当前实例独立存放设置、存档、模组等数据，使用模组时建议启用此选项以避免不同实例间模组冲突。
+        修改此选项后需自行移动设置、模组、存档等文件。
+      </p>
     </div>
     <div class="settings-container">
-      <div class="settings-item with-icon version-icon" style="margin-bottom: 0">
-        <div class="title">游戏图标</div>
+      <div class="settings-item with-icon version-icon">
+        <div class="title">
+          <AnchorRound />
+          实例图标
+        </div>
         <div class="value">
           <span class="icon">
             <img src="/fabric.svg" />
           </span>
           <span class="icon"><EditOutlined /></span>
           <span class="icon"><CloseRound /></span>
+        </div>
+      </div>
+      <div class="settings-item" style="margin-bottom: 0">
+        <div>
+          <div class="title">
+            <LinkOffRound />
+            实例特定的游戏设置
+          </div>
+          <div class="subtitle">不影响其他实例</div>
+        </div>
+        <div class="value">
+          <mdui-switch
+            checked-icon=""
+            :checked="versionIsolation"
+            @change="versionIsolation = !versionIsolation"
+          ></mdui-switch>
         </div>
       </div>
       <div v-if="!versionIsolation" class="settings-item" style="margin-top: 0">
@@ -52,25 +74,23 @@ const memoryAllocation = ref(4096)
       <div v-else style="margin-top: 20px">
         <div class="settings-item with-icon">
           <div>
-            <div class="title">游戏 Java</div>
+            <div class="title">
+              <CoffeeRound />
+              实例 Java
+            </div>
             <div class="subtitle">自动选择合适的 Java 版本</div>
           </div>
           <div class="value">
-            <span class="icon"><KeyboardArrowRightRound /></span>
-          </div>
-        </div>
-        <div class="settings-item with-icon">
-          <div>
-            <div class="title">版本隔离</div>
-            <div class="subtitle">建议使用模组时选择“各版本独立”</div>
-          </div>
-          <div class="value">
+            <span class="icon label">Java 21</span>
             <span class="icon"><KeyboardArrowRightRound /></span>
           </div>
         </div>
         <div class="settings-item memory-setting__container">
           <div>
-            <div class="title">游戏内存</div>
+            <div class="title">
+              <MemoryRound />
+              游戏内存
+            </div>
           </div>
           <div class="memory-setting">
             <span class="memory-setting__key">
@@ -88,15 +108,7 @@ const memoryAllocation = ref(4096)
               MB
             </span>
             <div style="display: flex; align-items: center">
-              <span
-                style="
-                  width: 60px;
-                  margin-left: 15px;
-                  margin-right: 5px;
-                  font-size: 13px;
-                  flex-shrink: 0;
-                "
-              >
+              <span style="width: 55px; margin-left: 15px; font-size: 13px; flex-shrink: 0">
                 自动分配
               </span>
               <mdui-switch
@@ -133,6 +145,7 @@ const memoryAllocation = ref(4096)
 
   .anno-title {
     margin-bottom: 10px;
+    font-weight: bold;
     display: flex;
     align-items: center;
 
@@ -166,9 +179,15 @@ const memoryAllocation = ref(4096)
     margin-bottom: 0;
   }
 
-  // .title {
-  //   font-weight: bold;
-  // }
+  .title {
+    display: flex;
+    align-items: center;
+
+    svg {
+      height: 25px;
+      margin-right: 5px;
+    }
+  }
 
   .subtitle {
     font-size: 12px;
@@ -221,18 +240,6 @@ const memoryAllocation = ref(4096)
   }
 }
 
-.version-isolation-switch {
-  background-color: initial;
-  box-shadow: initial;
-  margin-top: 20px;
-  display: flex;
-  align-items: center;
-
-  span {
-    margin-left: 10px;
-  }
-}
-
 .version-icon {
   .icon img {
     height: 30px;
@@ -248,5 +255,17 @@ const memoryAllocation = ref(4096)
       height: 25px;
     }
   }
+
+  .label {
+    font-size: 12px;
+    line-height: 12px;
+    background-color: rgb(var(--mdui-color-tertiary-container));
+    padding: 5px 8px;
+    border-radius: 11px;
+  }
+}
+
+mdui-switch {
+  transform: scale(0.8);
 }
 </style>
