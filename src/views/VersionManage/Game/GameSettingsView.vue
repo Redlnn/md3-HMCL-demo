@@ -9,6 +9,9 @@ import {
   AnchorRound,
   LinkOffRound,
   MemoryRound,
+  MonitorRound,
+  TextSnippetOutlined,
+  VideogameAssetOutlined,
 } from '@vicons/material'
 import 'mdui/components/switch.js'
 import 'mdui/components/button.js'
@@ -19,6 +22,7 @@ import 'mdui/components/checkbox.js'
 const autoMemory = ref(true)
 const versionIsolation = ref(true)
 const memoryAllocation = ref(4096)
+const fullScreen = ref(true)
 </script>
 
 <template>
@@ -126,6 +130,53 @@ const memoryAllocation = ref(4096)
             </div>
           </div>
         </div>
+        <div class="game-settings__item">
+          <div class="game-settings__item-icon">
+            <MonitorRound />
+          </div>
+          <div class="game-settings__item-title-area">
+            <div>
+              <div class="game-settings__item-title">游戏分辨率</div>
+            </div>
+          </div>
+          <div class="game-settings__item-btn-area">
+            <input type="number" value="1920" :disabled="fullScreen" />
+            <span style="margin: 0 5px">×</span>
+            <input type="number" value="1080" :disabled="fullScreen" />
+            <span class="game-settings__switch-label">全屏</span>
+            <mdui-switch
+              :checked="fullScreen"
+              @change="fullScreen = !fullScreen"
+              checked-icon=""
+            ></mdui-switch>
+          </div>
+        </div>
+        <div class="game-settings__item">
+          <div class="game-settings__item-icon">
+            <TextSnippetOutlined />
+          </div>
+          <div class="game-settings__item-title-area">
+            <div>
+              <div class="game-settings__item-title">查看日志</div>
+            </div>
+          </div>
+          <div class="game-settings__item-btn-area">
+            <mdui-switch checked-icon=""></mdui-switch>
+          </div>
+        </div>
+        <div class="game-settings__item">
+          <div class="game-settings__item-icon">
+            <VideogameAssetOutlined />
+          </div>
+          <div class="game-settings__item-title-area">
+            <div>
+              <div class="game-settings__item-title">服务器地址</div>
+            </div>
+          </div>
+          <div class="game-settings__item-btn-area">
+            <input style="width: 200px" value="mc.hmcl.server" />
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -134,8 +185,11 @@ const memoryAllocation = ref(4096)
 <style scoped lang="scss">
 .game-settings {
   position: relative;
-  height: 100%;
-  padding: 10px 20px 20px 0;
+  height: calc(100% - 30px);
+  padding-right: 20px;
+  margin-top: 10px;
+  overflow: auto;
+  overflow: overlay; /* Safari 支持 */
 
   &__announcement {
     background-color: rgb(var(--mdui-color-secondary-container));
@@ -219,6 +273,8 @@ const memoryAllocation = ref(4096)
       grid-area: btn-area;
       display: flex;
       align-items: center;
+      color: rgb(var(--mdui-color-on-surface-variant));
+      font-size: 13px;
     }
   }
 
@@ -230,6 +286,26 @@ const memoryAllocation = ref(4096)
   &__flex-align-center {
     display: flex;
     align-items: center;
+  }
+
+  input {
+    font-size: 13px;
+    width: 50px;
+    height: 25px;
+    border-radius: 4px;
+    border: none;
+    padding: 0 5px;
+    appearance: textfield;
+    -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none !important;
+    }
+  }
+
+  &__switch-label {
+    margin-left: 15px;
   }
 }
 
@@ -275,7 +351,6 @@ const memoryAllocation = ref(4096)
     .label {
       width: 55px;
       margin-left: 15px;
-      font-size: 13px;
       flex-shrink: 0;
     }
   }
@@ -291,12 +366,6 @@ const memoryAllocation = ref(4096)
   }
 
   &__memory-value input {
-    font-size: 13px;
-    width: 60px;
-    height: 25px;
-    border-radius: 4px;
-    border: none;
-    padding-left: 5px;
     margin-right: 5px;
   }
 
