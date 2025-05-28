@@ -81,7 +81,7 @@ defineProps<SidebarItemProps>()
   }
 
   &--active.sidebar-item--active-item {
-    background-color: rgba(var(--mdui-color-primary-container), 0.8);
+    background-color: rgba(var(--mdui-color-inverse-primary-light), 0.8);
     color: rgb(var(--mdui-color-on-primary-container));
     box-shadow: var(--mdui-elevation-level1);
   }
