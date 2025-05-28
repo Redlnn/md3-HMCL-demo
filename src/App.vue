@@ -59,7 +59,7 @@ const route = useRoute()
   width: 100%;
   height: 100%;
   background-color: rgb(var(--mdui-color-surface));
-  background-image: url('/2017-01-19_22.25.40.png');
+  background-image: url('/2017-01-19_22.25.40.webp');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;

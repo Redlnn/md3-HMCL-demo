@@ -16,7 +16,7 @@ const main = () => {
 // import { getColorFromImage } from 'mdui/functions/getColorFromImage.js'
 // import { setColorScheme } from 'mdui/functions/setColorScheme.js'
 // const image = new Image()
-// image.src = '/2017-01-19_22.25.40.png'
+// image.src = '/2017-01-19_22.25.40.webp'
 // const load = () => {
 //   getColorFromImage(image)
 //     .then((color) => setColorScheme(color))
