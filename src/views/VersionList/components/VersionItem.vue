@@ -7,13 +7,13 @@ import OperationButton from '@/components/OperationButton.vue'
 
 defineProps<{
   title: string
-  content?: string
+  subtitle?: string
   active?: boolean
 }>()
 </script>
 
 <template>
-  <ListItem :title="title" :subtitle="content" :active="active">
+  <ListItem :title="title" :subtitle="subtitle" :active="active">
     <template #icon>
       <slot></slot>
     </template>

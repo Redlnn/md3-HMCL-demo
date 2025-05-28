@@ -59,6 +59,10 @@ const router = createRouter({
           path: 'game',
           component: () => import('@/views/VersionManage/Game/GameSettingsView.vue'),
         },
+        {
+          path: 'install',
+          component: () => import('@/views/VersionManage/AutoInstall/AutoInstallView.vue'),
+        },
       ],
       meta: {
         title: '版本设置',

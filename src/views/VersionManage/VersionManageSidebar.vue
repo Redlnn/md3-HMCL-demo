@@ -57,6 +57,7 @@ const sidebarItems: SidebarItemType[] = [
       :icon="item.icon"
       :title="item.title"
       :active="route.path === item.path"
+      @click="() => item.path && $router.push(item.path)"
     />
   </template>
 </template>

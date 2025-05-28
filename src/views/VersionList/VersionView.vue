@@ -14,7 +14,7 @@ function start() {
   <section class="version-list">
     <version-item
       title="1.21.5"
-      content="1.21.5"
+      subtitle="1.21.5"
       active
       @start="start"
       @test="start"
@@ -24,7 +24,7 @@ function start() {
     </version-item>
     <version-item
       title="fabric-loader-0.16.14-1.21.5"
-      content="1.21.5, Fabric: 0.16.4"
+      subtitle="1.21.5, Fabric: 0.16.4"
       @start="start"
       @test="start"
       @settings="router.push('/version_settings/game')"
