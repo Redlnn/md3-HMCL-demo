@@ -7,7 +7,12 @@
 
 html,
 body {
+  position: absolute;
   overflow: hidden;
+  height: 100%;
+  width: 100%;
+  background-color: #eee;
+  z-index: -100;
 }
 
 #app {
