@@ -2,27 +2,24 @@
 import { CheckRound, CloseRound } from '@vicons/material'
 import type { Component } from 'vue'
 
-// SidebarItemType 用于 sidebarItems 配置，允许 icon/title 可选
-export type SidebarItemType = {
-  icon?: Component
-  title?: string
-  path?: string
-  subtitle?: string
-  active?: boolean
-  activeIcon?: boolean
-  canDelete?: boolean
+type DividerItemType = {
   divider?: boolean
 }
 
-// SidebarItemProps 用于 SidebarItem 组件，要求 icon/title 必填
-type SidebarItemProps = {
-  icon: Component
-  title: string
+type activeByPathItemType = {
+  path?: string
+}
+
+export type SidebarItemProps = {
+  icon?: Component
+  title?: string
   subtitle?: string
   active?: boolean
   activeIcon?: boolean
   canDelete?: boolean
 }
+
+export type SidebarItemType = SidebarItemProps & DividerItemType & activeByPathItemType
 
 defineProps<SidebarItemProps>()
 </script>

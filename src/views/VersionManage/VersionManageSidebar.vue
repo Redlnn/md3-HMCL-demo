@@ -51,6 +51,12 @@ const sidebarItems: SidebarItemType[] = [
 <template>
   <template v-for="(item, idx) in sidebarItems" :key="idx">
     <div v-if="item.divider" class="flex-grow"></div>
-    <sidebar-item v-else :icon="item.icon" :title="item.title" :active="route.path === item.path" />
+    <sidebar-item
+      v-else
+      v-bind="item"
+      :icon="item.icon"
+      :title="item.title"
+      :active="route.path === item.path"
+    />
   </template>
 </template>
