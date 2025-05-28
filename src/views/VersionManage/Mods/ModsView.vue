@@ -22,28 +22,32 @@ const modsList = [
     desc: 'alternate-current-mc1.21.5-1.9.0, 作者：Space Walker',
   },
   {
-    name: 'Alternate Current 1.9.0',
-    desc: 'alternate-current-mc1.21.5-1.9.0, 作者：Space Walker',
+    name: 'AppleSkin 3.0.6+mc1.21.5',
+    desc: 'appleskin-fabric-mc1.21.5-3.0.6, 作者: squeek502',
   },
   {
-    name: 'Alternate Current 1.9.0',
-    desc: 'alternate-current-mc1.21.5-1.9.0, 作者：Space Walker',
+    name: 'BetterF3 14.0.0',
+    desc: 'BetterF3-14.0.0-Fabric-1.21.5,作者:cominixo, TreyRuffy',
   },
   {
-    name: 'Alternate Current 1.9.0',
-    desc: 'alternate-current-mc1.21.5-1.9.0, 作者：Space Walker',
+    name: 'Bobby 5.2.7+mc1.21.5',
+    desc: 'bobby-5.2.7+mc1.21.5,作者:johni0702',
   },
   {
-    name: 'Alternate Current 1.9.0',
-    desc: 'alternate-current-mc1.21.5-1.9.0, 作者：Space Walker',
+    name: 'Concurrent Chunk Management Engine 0.3.3+alpha.0.7+1.21.5',
+    desc: 'c2me-fabric-mc1.21.5-0.3.3+alpha.0.7,作者:RelativityMC, ishland',
   },
   {
-    name: 'Alternate Current 1.9.0',
-    desc: 'alternate-current-mc1.21.5-1.9.0, 作者：Space Walker',
+    name: 'Carpet Extra 1.4.169',
+    desc: 'carpet-extra-1.21.5-1.4.169,作者:gnembon, DeadlyMC, ImUrX,2No2Name',
   },
   {
-    name: 'Alternate Current 1.9.0',
-    desc: 'alternate-current-mc1.21.5-1.9.0, 作者：Space Walker',
+    name: 'Carpet TIS Addition 1.66.1',
+    desc: 'carpet-tis-addition-v1.66.1-mc1.21.5',
+  },
+  {
+    name: 'Caxton 0.6.0-alpha.6+1.21.5-FABRIC',
+    desc: 'caxton-0.6.0-alpha.6+1.21.5-FABRIC',
   },
 ]
 </script>
