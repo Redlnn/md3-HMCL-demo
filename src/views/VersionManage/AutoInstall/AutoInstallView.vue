@@ -53,5 +53,10 @@ import { DeleteOutlineRound, PlusRound } from '@vicons/material'
   position: relative;
   height: 100%;
   padding: 10px 20px 20px;
+
+  svg {
+    width: 35px;
+    height: 35px;
+  }
 }
 </style>
