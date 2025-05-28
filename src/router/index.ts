@@ -63,6 +63,10 @@ const router = createRouter({
           path: 'install',
           component: () => import('@/views/VersionManage/AutoInstall/AutoInstallView.vue'),
         },
+        {
+          path: 'mods',
+          component: () => import('@/views/VersionManage/Mods/ModsView.vue'),
+        },
       ],
       meta: {
         title: '版本设置',
