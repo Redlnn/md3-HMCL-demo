@@ -10,7 +10,7 @@ defineProps<{
 
 <template>
   <div class="list-item" :class="{ 'list-item--active': active }">
-    <div class="list-item__icon">
+    <div v-if="$slots.icon" class="list-item__icon">
       <div v-if="active" class="list-item__active-icon">
         <CheckRound />
       </div>

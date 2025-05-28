@@ -32,12 +32,7 @@ import { DeleteOutlineRound, PlusRound } from '@vicons/material'
         <img src="/fabric.svg" />
       </template>
       <template #operations>
-        <OperationButton
-          :icon="DeleteOutlineRound"
-          tooltip="删除账号"
-          danger
-          @click="$emit('delete')"
-        />
+        <OperationButton :icon="DeleteOutlineRound" tooltip="卸载" danger />
       </template>
     </list-item>
     <list-item title="Quilt" subtitle="与Fabric不兼容">
