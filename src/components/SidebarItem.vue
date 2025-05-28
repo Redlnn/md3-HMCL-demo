@@ -42,8 +42,8 @@ defineProps<SidebarItemProps>()
       <div class="sidebar-item__title">{{ title }}</div>
       <div v-if="subtitle" class="sidebar-item__subtitle">{{ subtitle }}</div>
     </div>
-    <div class="sidebar-item__delete" @click="$emit('delete')">
-      <CloseRound v-if="canDelete" />
+    <div v-if="canDelete" class="sidebar-item__delete" @click="$emit('delete')">
+      <CloseRound />
     </div>
   </div>
 </template>
