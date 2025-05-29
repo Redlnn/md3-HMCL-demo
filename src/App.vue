@@ -26,7 +26,6 @@ const logoReady = useTimeout(2000)
 </template>
 
 <style scoped lang="scss">
-// 动画相关
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s ease;
@@ -37,10 +36,6 @@ const logoReady = useTimeout(2000)
   opacity: 0;
 }
 
-/*
-  进入和离开动画可以使用不同
-  持续时间和速度曲线。
-*/
 .slide-fade-enter-active,
 .slide-fade-leave-active {
   transition:
