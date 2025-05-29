@@ -7,11 +7,12 @@ import OperationButton from '@/components/OperationButton.vue'
 defineProps<{
   name: string
   desc?: string
+  labels?: string[]
 }>()
 </script>
 
 <template>
-  <ListItem :title="name" :subtitle="desc">
+  <ListItem :title="name" :labels="labels" :subtitle="desc">
     <template #icon>
       <mdui-switch checked checked-icon="" style="transform: scale(0.85)"></mdui-switch>
     </template>

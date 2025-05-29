@@ -4,6 +4,7 @@ import { CheckRound } from '@vicons/material'
 defineProps<{
   title: string
   subtitle?: string
+  labels?: string[]
   active?: boolean
 }>()
 </script>
@@ -17,7 +18,12 @@ defineProps<{
       <slot name="icon"></slot>
     </div>
     <div class="list-item__title-container flex-grow">
-      <div class="list-item__title">{{ title }}</div>
+      <div class="list-item__title">
+        <span>{{ title }}</span>
+        <span v-for="label in labels" :key="label" class="list-item__label">
+          {{ label }}
+        </span>
+      </div>
       <div v-if="subtitle" class="list-item__subtitle">{{ subtitle }}</div>
     </div>
     <div class="list-item__operations">
@@ -91,6 +97,23 @@ defineProps<{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    span {
+      vertical-align: middle;
+    }
+  }
+  &__label {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 5px;
+    margin-left: 5px;
+    border-radius: 9px;
+    font-weight: normal;
+    font-size: 12px;
+    background-color: rgb(var(--mdui-color-tertiary-container));
+    color: rgb(var(--mdui-color-on-tertiary-container));
+    line-height: 1em;
+    height: 1rem;
   }
   &__subtitle {
     font-size: 13px;
