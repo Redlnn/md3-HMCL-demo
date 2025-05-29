@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import 'mdui/components/switch.js'
+import { ref } from 'vue'
 
 import {
   RefreshRound,
@@ -11,6 +12,9 @@ import {
 } from '@vicons/material'
 
 import ModItem from './components/ModItem.vue'
+
+const isSearch = ref(false)
+const searchContent = ref('')
 
 const modsList = [
   {
@@ -55,7 +59,14 @@ const modsList = [
 <template>
   <div class="mods-list">
     <div class="mods-list-container">
-      <mod-item v-for="item in modsList" :key="item.name" :name="item.name" :desc="item.desc" />
+      <mod-item
+        v-for="item in modsList.filter((e) =>
+          e.name.toLowerCase().includes(searchContent.toLowerCase()),
+        )"
+        :key="item.name"
+        :name="item.name"
+        :desc="item.desc"
+      />
     </div>
     <div class="operations-container">
       <div class="operations">
@@ -74,8 +85,16 @@ const modsList = [
         <span class="operations__icon" title="下载模组">
           <FileDownloadRound />
         </span>
-        <span class="operations__icon" title="搜索模组">
+        <span
+          class="operations__icon"
+          :class="[isSearch ? 'active' : undefined]"
+          title="搜索模组"
+          @click="isSearch = !isSearch"
+        >
           <SearchRound />
+        </span>
+        <span class="operations__search" :class="[isSearch ? 'active' : undefined]">
+          <input type="text" v-model="searchContent" />
         </span>
       </div>
     </div>
@@ -129,12 +148,43 @@ const modsList = [
     color: rgb(var(--mdui-color-on-surface));
     cursor: pointer;
 
-    &:hover {
+    &:hover,
+    &.active {
       background-color: rgb(var(--mdui-color-primary-container));
     }
 
     svg {
       height: 20px;
+    }
+  }
+
+  .operations__search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    height: 35px;
+    margin: 0;
+    padding: 5px 0;
+    width: 0;
+    color: rgb(var(--mdui-color-on-surface));
+    transition:
+      width 0.2s ease,
+      margin 0.2s ease-in-out;
+
+    &.active {
+      margin: 0 7px;
+      width: 150px;
+    }
+
+    & input {
+      border: 0;
+      outline: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      background-color: transparent;
+      border-bottom: solid 1px rgb(var(--mdui-color-on-surface-variant-dark));
     }
   }
 }
