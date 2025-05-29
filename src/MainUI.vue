@@ -5,10 +5,14 @@ import HmclHeader from '@/components/HmclHeader.vue'
 import HmclSidebar from '@/components/HmclSidebar.vue'
 
 const route = useRoute()
+
+defineProps<{
+  bgUrl: string
+}>()
 </script>
 
 <template>
-  <div class="bg"></div>
+  <div class="bg" :style="{ backgroundImage: `url(${bgUrl})` }"></div>
   <div class="bg-mask"></div>
   <hmcl-header :title="route.meta.title" />
   <transition name="fade" mode="out-in">
@@ -59,7 +63,6 @@ const route = useRoute()
   width: 100%;
   height: 100%;
   background-color: rgb(var(--mdui-color-surface));
-  background-image: url('/2017-01-19_22.25.40.webp');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;

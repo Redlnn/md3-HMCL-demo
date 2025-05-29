@@ -1,10 +1,5 @@
 @use './base.scss';
 
-#app {
-  width: 960px;
-  height: 600px;
-}
-
 html,
 body {
   position: absolute;
@@ -16,12 +11,6 @@ body {
 }
 
 #app {
-  position: relative;
-  overflow: hidden;
-  border-radius: 6px;
-  box-shadow: var(--mdui-elevation-level5);
-  margin: 20px;
-  color: rgb(var(--mdui-color-on-surface));
 }
 
 a {

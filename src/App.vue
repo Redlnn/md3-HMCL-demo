@@ -1,28 +1,74 @@
 <script setup lang="ts">
-import { useTimeout } from '@vueuse/core'
+import { onBeforeMount, ref } from 'vue'
+
+import { getColorFromImage } from 'mdui/functions/getColorFromImage.js'
+import { setColorScheme } from 'mdui/functions/setColorScheme.js'
 
 import MainUI from './MainUI.vue'
 
-const ready = useTimeout(2000)
-const logoReady = useTimeout(2000)
+const ready = ref(false)
+const bgUrl = ref('/2017-01-19_22.25.40.webp')
+
+const loadBgLocal = (event: Event) => {
+  const target = event.target as HTMLInputElement
+  const file = target.files && target.files[0]
+  if (file && file.type.startsWith('image/')) {
+    ready.value = false
+    const reader = new FileReader()
+    reader.onload = (e) => {
+      if (e.target && e.target.result) {
+        const image = new Image()
+        image.src = e.target.result as string
+        bgUrl.value = e.target.result as string
+        const load = () => {
+          getColorFromImage(image)
+            .then((color) => setColorScheme(color))
+            .then(() => (ready.value = true))
+        }
+        image.onload = load
+      }
+    }
+    reader.readAsDataURL(file)
+  }
+}
+
+const loadBg = (url: string) => {
+  ready.value = false
+  const image = new Image()
+  image.src = url
+  const load = () => {
+    getColorFromImage(image)
+      .then((color) => setColorScheme(color))
+      .then(() => (ready.value = true))
+  }
+  image.onload = load
+}
+
+onBeforeMount(() => loadBg(bgUrl.value))
 </script>
 
 <template>
-  <transition name="slide-fade">
-    <div v-show="!logoReady" class="splash__logo">
-      <img src="/hmcl.png" alt="Logo" />
-    </div>
-  </transition>
-  <transition name="fade">
-    <div v-show="!ready" class="splash">
-      <div class="splash__logo-placeholder"></div>
-      <div class="splash__text">
-        <h1>Hello Minecraft! Launcher</h1>
-        <h2>Loading... Please wait</h2>
+  <div class="ui-container">
+    <transition name="slide-fade">
+      <div v-show="!ready" class="splash__logo">
+        <img src="/hmcl.png" alt="Logo" />
       </div>
-    </div>
-  </transition>
-  <MainUI />
+    </transition>
+    <transition name="fade">
+      <div v-show="!ready" class="splash">
+        <div class="splash__logo-placeholder"></div>
+        <div class="splash__text">
+          <h1>Hello Minecraft! Launcher</h1>
+          <h2>Loading... Please wait</h2>
+        </div>
+      </div>
+    </transition>
+    <MainUI :bg-url="bgUrl" />
+  </div>
+  <div style="margin-left: 20px">
+    <span>更改背景：</span>
+    <input type="file" accept="image/*" @change="loadBgLocal" />
+  </div>
 </template>
 
 <style scoped lang="scss">
@@ -47,6 +93,17 @@ const logoReady = useTimeout(2000)
 .slide-fade-leave-to {
   transform: translateY(20px);
   opacity: 0;
+}
+
+.ui-container {
+  width: 960px;
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: var(--mdui-elevation-level5);
+  margin: 20px;
+  color: rgb(var(--mdui-color-on-surface));
 }
 
 .splash {
