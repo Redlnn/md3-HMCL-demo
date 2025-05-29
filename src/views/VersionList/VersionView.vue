@@ -18,7 +18,7 @@ function start() {
       active
       @start="start"
       @test="start"
-      @settings="router.push('/version_settings/game')"
+      @settings="router.push('/version_list/game_settings')"
     >
       <img src="/Grass_Block_JE7_BE6.png" />
     </version-item>
@@ -27,7 +27,7 @@ function start() {
       subtitle="1.21.5, Fabric: 0.16.4"
       @start="start"
       @test="start"
-      @settings="router.push('/version_settings/game')"
+      @settings="router.push('/version_list/game_settings')"
     >
       <img src="/fabric.svg" />
     </version-item>

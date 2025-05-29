@@ -45,33 +45,40 @@ const router = createRouter({
     {
       path: '/version_list',
       name: 'versionList',
-      component: () => import('@/views/VersionList/VersionView.vue'),
-      meta: {
-        title: '版本管理',
-        sidebar: VersionSidebar,
-      },
-    },
-    {
-      path: '/version_settings',
-      name: 'versionSettings',
       children: [
         {
-          path: 'game',
+          path: '',
+          component: () => import('@/views/VersionList/VersionView.vue'),
+          meta: {
+            title: '版本管理',
+            sidebar: VersionSidebar,
+          },
+        },
+        {
+          path: 'game_settings',
           component: () => import('@/views/VersionManage/Game/GameSettingsView.vue'),
+          meta: {
+            title: '版本设置',
+            sidebar: VersionSettingsSidebar,
+          },
         },
         {
           path: 'install',
           component: () => import('@/views/VersionManage/AutoInstall/AutoInstallView.vue'),
+          meta: {
+            title: '自动安装',
+            sidebar: VersionSettingsSidebar,
+          },
         },
         {
           path: 'mods',
           component: () => import('@/views/VersionManage/Mods/ModsView.vue'),
+          meta: {
+            title: '模组管理',
+            sidebar: VersionSettingsSidebar,
+          },
         },
       ],
-      meta: {
-        title: '版本设置',
-        sidebar: VersionSettingsSidebar,
-      },
     },
   ],
 })

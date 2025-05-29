@@ -12,38 +12,38 @@ const sidebarItems: SidebarItemType[] = [
   {
     icon: Settings16Regular,
     title: '游戏设置',
-    path: '/version_settings/game',
+    path: '/version_list/game_settings',
   },
   {
     icon: BuildOutlined,
     title: '自动安装',
-    path: '/version_settings/install',
+    path: '/version_list/install',
   },
   {
     icon: PuzzlePiece16Regular,
     title: '模组管理',
-    path: '/version_settings/mods',
+    path: '/version_list/mods',
   },
   {
     icon: Earth16Regular,
     title: '世界/数据包',
-    path: '/version_settings/worlds',
+    path: '/version_list/worlds',
   },
   { divider: true },
   {
     icon: BugReportOutlined,
     title: '测试游戏',
-    path: '/version_settings/debug',
+    path: '/version_list/debug',
   },
   {
     icon: FolderOpenRound,
     title: '浏览',
-    path: '/version_settings/browse',
+    path: '/version_list/browse',
   },
   {
     icon: TuneRound,
     title: '管理',
-    path: '/version_settings/manage',
+    path: '/version_list/manage',
   },
 ]
 </script>
