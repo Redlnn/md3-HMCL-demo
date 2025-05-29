@@ -122,10 +122,8 @@ const modsList = [
 .operations-container {
   position: absolute;
   bottom: 20px;
-  left: 20px;
-  right: 20px;
-  display: flex;
-  justify-content: center;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .operations {
